@@ -20,9 +20,14 @@ class Plotter:
             lat=[dp.lat for dp in dp_list], lon=[dp.lon for dp in dp_list], mode='markers', text=[str(dp) for dp in dp_list],
             marker={'size': 5, 'color': color}, name=plot_name))
 
-    def plot_matching(self, dtdp_list, gtdp_list, color='yellow'):
-        for dtdp in dtdp_list:
-            if dtdp.match != -1:
+    def plot_matching(self, dtdp_list, gtdp_list, match_indices=None, color='yellow'):
+        for dtdp_idx, dtdp in enumerate(dtdp_list):
+            if match_indices is None and dtdp.match != -1:
                 matched_gtdp = gtdp_list[dtdp.match]
-                self.fig.add_trace(go.Scattermapbox(lat=[matched_gtdp.lat, dtdp.lat], lon=[matched_gtdp.lon, dtdp.lon], mode='lines',
-                marker={'size': 10, 'color': color}, name='matching'))
+            elif match_indices is None and dtdp.match == -1:
+                print('A valid match idx is required')
+                raise ValueError
+            else:
+                matched_gtdp = gtdp_list[match_indices[dtdp_idx]]
+            self.fig.add_trace(go.Scattermapbox(lat=[matched_gtdp.lat, dtdp.lat], lon=[matched_gtdp.lon, dtdp.lon], mode='lines',
+            marker={'size': 10, 'color': color}, name='matching'))

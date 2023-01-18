@@ -183,7 +183,7 @@ class DetectionData(ExperimentData):
         out_of_range=filter_distance_to_center({'lat':lat,'lon':long})
 
         if not out_of_range:
-            self.datetime.append(row['UTC Timestamp'])
+            self.datetime.append(float(datetime.datetime.strptime(row['UTC Timestamp'], '%Y-%m-%d %H:%M:%S.%f').timestamp() * 1000000000))
             self.longs.append(float(row['lon'])/10000000)
             self.lats.append(float(row['lat'])/10000000)
             self.speeds.append(float(row['speed'])/50)
@@ -214,7 +214,8 @@ class DetectionData(ExperimentData):
                 out_of_range=filter_distance_to_center({'lat':lat,'lon':long})
                 #out_of_range=False
                 if not out_of_range:
-                    datetime_mill = datetime.datetime.fromtimestamp(float(row['sender_timestamp']) / 1000000).strftime('%Y-%m-%d %H:%M:%S.%f')
+                    datetime_mill = float(row['sender_timestamp']) / 1000000
+                    raise NotImplementedError
                     self.datetime.append(datetime_mill)
                     self.longs.append(long)
                     self.lats.append(lat)
@@ -241,7 +242,7 @@ class DetectionData(ExperimentData):
         out_of_range=filter_distance_to_center({'lat':lat,'lon':long})
 
         if not out_of_range:
-            self.datetime.append(row['secMarkDecoded'])
+            self.datetime.append(float(datetime.strptime(row['secMarkDecoded'], '%Y-%m-%d %H-%M-%S-%f').timestamp() * 1000000000))
             self.longs.append(long)
             self.lats.append(lat)
             if row['Speed']=='':
@@ -364,7 +365,7 @@ def compute_real_meter_distance_from_latlon(lat1, lon1, lat2, lon2):  # generall
 
 # Area of interest filter
 def filter_distance_to_center(data):
-    CENTER_COR=[42.229394, -83.739015]# intersection center point
+    CENTER_COR=[42.300947, -83.698649] # intersection center point
 
     # dx, dy = 111139 * (np.array([data['lat'],data['lon']])-np.array(CENTER_COR))
     # d = (dx ** 2 + dy ** 2) ** 0.5

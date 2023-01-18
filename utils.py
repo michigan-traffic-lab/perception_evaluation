@@ -74,10 +74,10 @@ def prepare_data(dt, gt):
     # convert detections to datapoints
     dtdp_list = []
     for i in range(len(dt.lats)):
-        dt_time = float(datetime.strptime(dt.datetime[i], '%Y-%m-%d %H-%M-%S-%f').timestamp() * 1000000000)
+        # dt_time = float(datetime.strptime(dt.datetime[i], '%Y-%m-%d %H-%M-%S-%f').timestamp() * 1000000000)
         dtdp_list.append(
             DataPoint(id=dt.obj_ids[i], 
-                        time=dt_time,
+                        time=float(dt.datetime[i]),
                         lat=dt.lats[i],
                         lon=dt.longs[i],
                         speed=dt.speeds[i]
@@ -90,7 +90,7 @@ def prepare_data(dt, gt):
     for i in range(len(gt.lats)):
         gtdp_list.append(
             DataPoint(id=0, 
-                        time=gt.datetime[i],
+                        time=float(gt.datetime[i]),
                         lat=gt.lats[i],
                         lon=gt.longs[i],
                         speed=None
