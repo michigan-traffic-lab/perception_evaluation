@@ -14,11 +14,15 @@ class Plotter:
             showlegend=True, title_text='CAV Trajectories Recorded by RTK and Detected by CI')
         return   
         
-    def plot_traj_data(self, dp_list, plot_name, color='blue'):
+    def plot_traj_data(self, dp_list, plot_name, color=None):
         # need to support multiple vehicles
-        self.fig.add_trace(go.Scattermapbox(
-            lat=[dp.lat for dp in dp_list], lon=[dp.lon for dp in dp_list], mode='markers', text=[str(dp) for dp in dp_list],
-            marker={'size': 5, 'color': color}, name=plot_name))
+        ids = [dtdp.id for dtdp in dp_list]
+        ids_set = set(ids)
+        for idx, id in enumerate(ids_set):
+            dp_sublist = [dp for dp in dp_list if dp.id == id]
+            self.fig.add_trace(go.Scattermapbox(
+                lat=[dp.lat for dp in dp_sublist], lon=[dp.lon for dp in dp_sublist], mode='markers', text=[str(dp) for dp in dp_sublist],
+                marker={'size': 5, 'color': color if color is not None else idx}, name=plot_name+f'ID: {id}'))
 
     def plot_matching(self, dtdp_list, gtdp_list, match_indices=None, color='yellow'):
         for dtdp_idx, dtdp in enumerate(dtdp_list):

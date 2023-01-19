@@ -69,20 +69,34 @@ def compute_speed_and_heading(dp_list, interval=2):
         dp.heading = np.arctan2(dy, dx)
 
 
-def prepare_data(dt, gt):
+def prepare_data(dt, gt, cate='veh'):
 
     # convert detections to datapoints
     dtdp_list = []
     for i in range(len(dt.lats)):
-        # dt_time = float(datetime.strptime(dt.datetime[i], '%Y-%m-%d %H-%M-%S-%f').timestamp() * 1000000000)
-        dtdp_list.append(
-            DataPoint(id=dt.obj_ids[i], 
-                        time=float(dt.datetime[i]),
-                        lat=dt.lats[i],
-                        lon=dt.longs[i],
-                        speed=dt.speeds[i]
-                        )
-        )
+        if cate == 'veh':
+            # for bluecity, veh is type=2
+            if dt.obj_type is None or dt.obj_type[i] == '2':
+                dtdp_list.append(
+                    DataPoint(id=dt.obj_ids[i], 
+                                time=float(dt.datetime[i]),
+                                lat=dt.lats[i],
+                                lon=dt.longs[i],
+                                speed=dt.speeds[i]
+                                )
+                )
+        elif cate == 'ped':
+            # for bluecity, ped is type=2
+            if dt.obj_type[i] == '10':
+                dtdp_list.append(
+                    DataPoint(id=dt.obj_ids[i], 
+                                time=float(dt.datetime[i]),
+                                lat=dt.lats[i],
+                                lon=dt.longs[i],
+                                speed=dt.speeds[i]
+                                )
+                )
+
     dtdp_list = sorted(dtdp_list, key=lambda x: x.time)
     
     # convert groundtruths to datapoints
