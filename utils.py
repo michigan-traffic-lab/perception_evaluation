@@ -33,22 +33,29 @@ class DataPoint:
     def __str__(self):
         return f'UTC time: {self.timestr}, ID: {self.id}, speed: {self.speed}, heading: {self.heading}'
 
+
 class DataFrame:
     pass
+
 
 class TrajectorySet:
     def query_by_frame():
         pass
-    
+
     def query_by_id():
         pass
 
 
-def distance(lat1, lon1, lat2, lon2):
+def dydx_distance(lat1, lon1, lat2, lon2):
     # dx, dy = (lat2 - lat1) * 111000., (lon2 - lon1) * 111000. * np.cos(lat2/180*np.pi)
     dx = geodistance.geodesic([lat2, lon1], [lat1, lon1]).m * np.sign(lat2 - lat1)
     dy = geodistance.geodesic([lat2, lon2], [lat2, lon1]).m * np.sign(lon2 - lon1)
     return dx, dy
+
+
+def distance(lat1, lon1, lat2, lon2):
+    return geodistance.geodesic([lat2, lon2], [lat1, lon1]).m
+
 
 def compute_speed_and_heading(dp_list, interval=2):
     '''
@@ -56,21 +63,20 @@ def compute_speed_and_heading(dp_list, interval=2):
     '''
     for i in range(len(dp_list)):
         dp = dp_list[i]
-        past_t = max(0, i-interval)
-        future_t = min(len(dp_list)-1, i+interval)
-        dx, dy = distance(dp_list[past_t].lat, dp_list[past_t].lon, dp_list[future_t].lat, dp_list[future_t].lon)
+        past_t = max(0, i - interval)
+        future_t = min(len(dp_list) - 1, i + interval)
+        dy, dx = dydx_distance(dp_list[past_t].lat, dp_list[past_t].lon, dp_list[future_t].lat, dp_list[future_t].lon)
 
         # compute speed m/s
-        dp.speed = (dx**2 + dy**2)**0.5 / (dp_list[future_t].time - dp_list[past_t].time) * 1000000000
-        
+        dp.speed = (dx ** 2 + dy ** 2) ** 0.5 / (dp_list[future_t].time - dp_list[past_t].time) * 1000000000
+
         # compute heading
         # clock-wise, in degree
         # north: 0, east: pi/2, north-east: pi/4
-        dp.heading = np.arctan2(dy, dx)
+        dp.heading = np.arctan2(dx, dy)
 
 
 def prepare_data(dt, gt, cate='veh'):
-
     # convert detections to datapoints
     dtdp_list = []
     for i in range(len(dt.lats)):
@@ -78,37 +84,37 @@ def prepare_data(dt, gt, cate='veh'):
             # for bluecity, veh is type=2
             if dt.obj_type is None or dt.obj_type[i] == '2':
                 dtdp_list.append(
-                    DataPoint(id=dt.obj_ids[i], 
-                                time=float(dt.datetime[i]),
-                                lat=dt.lats[i],
-                                lon=dt.longs[i],
-                                speed=dt.speeds[i]
-                                )
+                    DataPoint(id=dt.obj_ids[i],
+                              time=float(dt.datetime[i]),
+                              lat=dt.lats[i],
+                              lon=dt.longs[i],
+                              speed=dt.speeds[i]
+                              )
                 )
         elif cate == 'ped':
             # for bluecity, ped is type=2
             if dt.obj_type[i] == '10':
                 dtdp_list.append(
-                    DataPoint(id=dt.obj_ids[i], 
-                                time=float(dt.datetime[i]),
-                                lat=dt.lats[i],
-                                lon=dt.longs[i],
-                                speed=dt.speeds[i]
-                                )
+                    DataPoint(id=dt.obj_ids[i],
+                              time=float(dt.datetime[i]),
+                              lat=dt.lats[i],
+                              lon=dt.longs[i],
+                              speed=dt.speeds[i]
+                              )
                 )
 
     dtdp_list = sorted(dtdp_list, key=lambda x: x.time)
-    
+
     # convert groundtruths to datapoints
     gtdp_list = []
     for i in range(len(gt.lats)):
         gtdp_list.append(
-            DataPoint(id=0, 
-                        time=float(gt.datetime[i]),
-                        lat=gt.lats[i],
-                        lon=gt.longs[i],
-                        speed=None
-                        )
+            DataPoint(id=0,
+                      time=float(gt.datetime[i]),
+                      lat=gt.lats[i],
+                      lon=gt.longs[i],
+                      speed=None
+                      )
         )
     gtdp_list = sorted(gtdp_list, key=lambda x: x.time)
     compute_speed_and_heading(dtdp_list, interval=2)

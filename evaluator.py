@@ -1,10 +1,7 @@
-import time
-
 import numpy as np
 import collections
-from datetime import datetime
 from visualizer import Plotter
-from utils import distance, prepare_data
+from utils import dydx_distance, prepare_data, distance
 
 
 # prototype evaluator class
@@ -91,7 +88,7 @@ class Evaluator:
                 matched_gtdp = self.gtdp_list[dtdp.match]
                 gt_heading = matched_gtdp.heading
                 # compute distance error between detection and matched ground-truth
-                d_lat, d_lon = distance(matched_gtdp.lat, matched_gtdp.lon, dtdp.lat, dtdp.lon)
+                d_lat, d_lon = dydx_distance(matched_gtdp.lat, matched_gtdp.lon, dtdp.lat, dtdp.lon)
                 d = (d_lat ** 2 + d_lon ** 2) ** 0.5
                 # compute heading of the distance error
                 d_heading = np.arctan2(d_lon, d_lat)
@@ -174,12 +171,10 @@ class Evaluator:
         for dtdp in dtdp_list:
             d_min = self.dis_th
             match_idx = -1
-            gtdp_masked_indices = [idx for (idx, gtdp) in enumerate(gtdp_list) if
+            masked_gtdp_with_idx = [(idx, gtdp) for (idx, gtdp) in enumerate(gtdp_list) if
                                    np.abs(gtdp.time - dtdp.time) / 1e9 < self.time_th]
-            for gtdp_idx in gtdp_masked_indices:
-                gtdp = gtdp_list[gtdp_idx]
-                d_lat, d_lon = distance(dtdp.lat, dtdp.lon, gtdp.lat, gtdp.lon)
-                d = (d_lat ** 2 + d_lon ** 2) ** 0.5
+            for gtdp_idx, gtdp in masked_gtdp_with_idx:
+                d = distance(dtdp.lat, dtdp.lon, gtdp.lat, gtdp.lon)
                 if d < d_min:
                     d_min = d
                     match_idx = gtdp_idx
@@ -198,8 +193,7 @@ class Evaluator:
 
         remove_dp_list = []
         for dp in self.dtdp_list:
-            d_lat, d_lon = distance(self.center_lat, self.center_lon, dp.lat, dp.lon)
-            d = (d_lat ** 2 + d_lon ** 2) ** 0.5
+            d = distance(self.center_lat, self.center_lon, dp.lat, dp.lon)
             if d >= radius:
                 remove_dp_list.append(dp)
         for dp in remove_dp_list:
@@ -207,8 +201,7 @@ class Evaluator:
 
         remove_dp_list = []
         for dp in self.gtdp_list:
-            d_lat, d_lon = distance(self.center_lat, self.center_lon, dp.lat, dp.lon)
-            d = (d_lat ** 2 + d_lon ** 2) ** 0.5
+            d = distance(self.center_lat, self.center_lon, dp.lat, dp.lon)
             if d >= radius:
                 remove_dp_list.append(dp)
         for dp in remove_dp_list:
