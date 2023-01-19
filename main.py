@@ -5,7 +5,7 @@ from evaluator import Evaluator
 GROUND_TRUTH_FREQUENCY=50 #50hz
 DET_FREQUENCY=2.5 #10hz Derq system  Conti
 DISTANCE_THRESHOLD=1.5 #1.5 meters
-LATENCY=1.80 #change to real value when calculate longitudinal errors
+VEH_LATENCY=1.80 #change to real value when calculate longitudinal errors
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--trial-name', default='8')
@@ -28,7 +28,7 @@ if __name__  == '__main__':
     ]
 
     ## evaluate accuracy
-    evaluator = Evaluator(1.5, detection_data[0], vehicle_data[0], latency=LATENCY, 
+    evaluator = Evaluator(1.5, detection_data[0], vehicle_data[0], latency=VEH_LATENCY,
                           det_freq=DET_FREQUENCY, gt_freq=GROUND_TRUTH_FREQUENCY)
     evaluator.evaluate(visualize=True)
     
