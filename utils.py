@@ -75,33 +75,53 @@ def compute_speed_and_heading(dp_list, interval=2):
         # north: 0, east: pi/2, north-east: pi/4
         dp.heading = np.arctan2(dx, dy)
 
-
-def prepare_data(dt, gt, cate='veh'):
+# TODO: parse in a function to compute speed_heading
+def prepare_data(dt, gt, cate='veh', source='Bluecity'):
     # convert detections to datapoints
     dtdp_list = []
     for i in range(len(dt.lats)):
-        if cate == 'veh':
-            # for bluecity, veh is type=2
-            if dt.obj_type is None or dt.obj_type[i] == '2':
+        if source == 'Bluecity':
+            if cate == 'veh':
+                # for bluecity, veh is type=2
+                if dt.obj_type[i] == '2':
+                    dtdp_list.append(
+                        DataPoint(id=dt.obj_ids[i],
+                                time=float(dt.datetime[i]),
+                                lat=dt.lats[i],
+                                lon=dt.longs[i],
+                                speed=dt.speeds[i]
+                                )
+                    )
+            elif cate == 'ped':
+                # for bluecity, ped is type=2
+                if dt.obj_type[i] == '10':
+                    dtdp_list.append(
+                        DataPoint(id=dt.obj_ids[i],
+                                time=float(dt.datetime[i]),
+                                lat=dt.lats[i],
+                                lon=dt.longs[i],
+                                speed=dt.speeds[i]
+                                )
+                    )
+            elif cate == 'all':
                 dtdp_list.append(
                     DataPoint(id=dt.obj_ids[i],
-                              time=float(dt.datetime[i]),
-                              lat=dt.lats[i],
-                              lon=dt.longs[i],
-                              speed=dt.speeds[i]
-                              )
+                                time=float(dt.datetime[i]),
+                                lat=dt.lats[i],
+                                lon=dt.longs[i],
+                                speed=dt.speeds[i]
+                                )
                 )
-        elif cate == 'ped':
-            # for bluecity, ped is type=2
-            if dt.obj_type[i] == '10':
+        if source == 'Derq':
                 dtdp_list.append(
                     DataPoint(id=dt.obj_ids[i],
-                              time=float(dt.datetime[i]),
-                              lat=dt.lats[i],
-                              lon=dt.longs[i],
-                              speed=dt.speeds[i]
-                              )
+                                time=float(dt.datetime[i]),
+                                lat=dt.lats[i],
+                                lon=dt.longs[i],
+                                speed=dt.speeds[i]
+                                )
                 )
+            
 
     dtdp_list = sorted(dtdp_list, key=lambda x: x.time)
 
@@ -121,3 +141,15 @@ def prepare_data(dt, gt, cate='veh'):
     compute_speed_and_heading(gtdp_list, interval=10)
 
     return dtdp_list, gtdp_list
+
+def get_detection_file_path(system, data_dir, trial_id, vehicle_id=None):
+    if system == 'Bluecity':
+        if vehicle_id == None:
+            return f'{data_dir}/dets/detection_{trial_id}.json'
+        else:
+            return f'{data_dir}/dets/detection_{trial_id}_{vehicle_id}.json'
+    elif system == 'Derq':
+        if vehicle_id == None:
+            return f'{data_dir}/dets/edge_DSRC_BSM_send_{trial_id}.csv'
+        else:
+            return f'{data_dir}/dets/edge_DSRC_BSM_send_{trial_id}_{vehicle_id}.csv'

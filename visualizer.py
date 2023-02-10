@@ -1,5 +1,9 @@
 import plotly.graph_objects as go
+import matplotlib
+import matplotlib.cm as cmx
 import numpy as np
+
+cmaps = ['cyan', 'green', 'yellow', 'orange', 'pink', 'purple']
 
 class Plotter:
     def __init__(self, center_lat, center_lon):
@@ -12,7 +16,7 @@ class Plotter:
                 'style': "satellite-streets", 'center': {'lat': (self.center_lat), 'lon': (self.center_lon)},
                 'zoom': 20},
             showlegend=True, title_text='CAV Trajectories Recorded by RTK and Detected by CI')
-        return   
+        return
         
     def plot_traj_data(self, dp_list, plot_name, color=None):
         # need to support multiple vehicles
@@ -22,7 +26,7 @@ class Plotter:
             dp_sublist = [dp for dp in dp_list if dp.id == id]
             self.fig.add_trace(go.Scattermapbox(
                 lat=[dp.lat for dp in dp_sublist], lon=[dp.lon for dp in dp_sublist], mode='markers', text=[str(dp) for dp in dp_sublist],
-                marker={'size': 5, 'color': color if color is not None else idx}, name=plot_name+f'ID: {id}'))
+                marker={'size': 5, 'color': color if color is not None else cmaps[int(id) % len(cmaps)]}, name=plot_name+f'ID: {id}'))
 
     def plot_matching(self, dtdp_list, gtdp_list, match_indices=None, color='yellow'):
         for dtdp_idx, dtdp in enumerate(dtdp_list):

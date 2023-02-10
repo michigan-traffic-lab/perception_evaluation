@@ -8,7 +8,7 @@ from utils import dydx_distance, prepare_data, distance
 # only works for one vehicle evaluation now
 # needs to pass in latency term for evaluation
 class Evaluator:
-    def __init__(self, cate, dis_th, dt, gt, det_freq, gt_freq, latency=None, center_latlng=None, roi_radius=50,
+    def __init__(self, source, cate, dis_th, dt, gt, det_freq, gt_freq, latency=None, center_latlng=None, roi_radius=50,
                  time_th=3) -> None:
         self.cate = cate
         self.dis_th = dis_th
@@ -18,7 +18,7 @@ class Evaluator:
         self.center_lat = center_latlng[0]
         self.center_lon = center_latlng[1]
         self.roi_radius = roi_radius
-        self.dtdp_list, self.gtdp_list = prepare_data(dt, gt, cate=cate)
+        self.dtdp_list, self.gtdp_list = prepare_data(dt, gt, cate=cate, source=source)
         self.latency = self.compute_latency_method1() if latency is None else latency
         self._compute_det_frequency()
         self._remove_outside_data()
@@ -33,7 +33,7 @@ class Evaluator:
         '''
         self._compute_matching()
         if visualize:
-            self._visualize_matching()
+            self.visualize_data()
         self._compute_position_error()
         self._compute_false_positives()
         self._compute_false_negatives()
@@ -49,8 +49,17 @@ class Evaluator:
 
     def visualize_data(self):
         plotter = Plotter(center_lat=self.center_lat, center_lon=self.center_lon)
-        plotter.plot_traj_data(self.dtdp_list, plot_name='Detection')
         plotter.plot_traj_data(self.gtdp_list, plot_name='GPS RTK', color='blue')
+        plotter.plot_traj_data(self.dtdp_list, plot_name='Detection')
+        plotter.fig.show()
+
+    def visualize_data_temp(self, dtdp_list, gtdp_lists):
+        dtdp_list, gtdp_lists[0] = self._remove_outside_data(False, dtdp_list, gtdp_lists[0], radius=50)
+        dtdp_list, gtdp_lists[1] = self._remove_outside_data(False, dtdp_list, gtdp_lists[1], radius=50)
+        plotter = Plotter(center_lat=self.center_lat, center_lon=self.center_lon)
+        plotter.plot_traj_data(gtdp_lists[0], plot_name='GPS RTK 1', color='blue')
+        plotter.plot_traj_data(gtdp_lists[1], plot_name='GPS RTK 2', color='red')
+        plotter.plot_traj_data(dtdp_list, plot_name='Detection')
         plotter.fig.show()
 
     def _compute_matching(self):
@@ -68,7 +77,7 @@ class Evaluator:
 
     def _visualize_matching(self):
         plotter = Plotter(center_lat=self.center_lat, center_lon=self.center_lon)
-        # plotter.plot_matching(self.dtdp_list, self.gtdp_list)
+        plotter.plot_matching(self.dtdp_list, self.gtdp_list)
         plotter.plot_traj_data(self.dtdp_list, plot_name='Detection')
         plotter.plot_traj_data(self.gtdp_list, plot_name='GPS RTK', color='blue')
         plotter.fig.show()
@@ -109,6 +118,7 @@ class Evaluator:
         self.num_false_positive = sum([1.0 for dtdp in self.dtdp_list if dtdp.tp is False])
         self.false_positive_rate = self.num_false_positive / len(self.dtdp_list)
 
+    # TODO: needs more discussion and rewrite
     def _compute_false_negatives(self):
         '''
         FN rate = (num_expected_detection - num_true_positive_detection) / num_expected_detection
@@ -118,6 +128,7 @@ class Evaluator:
         self.num_false_negative = max(0.0, num_exp_det - num_tp_det)
         self.false_negative_rate = self.num_false_negative / num_exp_det
 
+    # TODO: needs to support multiple vehicles
     def _compute_det_frequency(self):
         time_interval = (self.dtdp_list[-1].time - self.dtdp_list[0].time) / 1000000000.0
         self.actual_det_freq = (len(self.dtdp_list) - 1) / time_interval
@@ -181,18 +192,21 @@ class Evaluator:
             min_dis_match_idx.append(match_idx)
         return min_dis_match_idx
 
-    def _remove_outside_data(self, inplace=True, radius=None):
+    def _remove_outside_data(self, inplace=True, dtdp_list=None, gtdp_list=None, radius=None):
         if radius is None:
             radius = self.roi_radius
         if inplace:
             output_dtdp_list = self.dtdp_list
             output_gtdp_list = self.gtdp_list
-        else:
+        elif dtdp_list is None and gtdp_list is None:
             output_dtdp_list = self.dtdp_list.copy()
             output_gtdp_list = self.gtdp_list.copy()
+        else:
+            output_dtdp_list = dtdp_list.copy()
+            output_gtdp_list = gtdp_list.copy()
 
         remove_dp_list = []
-        for dp in self.dtdp_list:
+        for dp in output_dtdp_list:
             d = distance(self.center_lat, self.center_lon, dp.lat, dp.lon)
             if d >= radius:
                 remove_dp_list.append(dp)
@@ -200,7 +214,7 @@ class Evaluator:
             output_dtdp_list.remove(dp)
 
         remove_dp_list = []
-        for dp in self.gtdp_list:
+        for dp in output_gtdp_list:
             d = distance(self.center_lat, self.center_lon, dp.lat, dp.lon)
             if d >= radius:
                 remove_dp_list.append(dp)
@@ -216,13 +230,13 @@ class Evaluator:
         First match the detection with the ground-truth points by minimum distance
         Then directly compute the mean time inverval between detection and matched ground-truth as mean latency
         '''
-        dtdp_list_for_latency, gtdp_list_for_latency = self._remove_outside_data(inplace=False, radius=40)
+        dtdp_list_for_latency, gtdp_list_for_latency = self._remove_outside_data(inplace=False, radius=20)
         min_dis_match_idx = self._compute_minimum_distance_matching(dtdp_list_for_latency, gtdp_list_for_latency)
-        plotter = Plotter(center_lat=self.center_lat, center_lon=self.center_lon)
-        plotter.plot_matching(dtdp_list_for_latency, gtdp_list_for_latency, min_dis_match_idx, color='green')
-        plotter.plot_traj_data(dtdp_list_for_latency, plot_name='Msight detection', color='red')
-        plotter.plot_traj_data(gtdp_list_for_latency, plot_name='GPS RTK', color='blue')
-        plotter.fig.show()
+        # plotter = Plotter(center_lat=self.center_lat, center_lon=self.center_lon)
+        # plotter.plot_matching(dtdp_list_for_latency, gtdp_list_for_latency, min_dis_match_idx, color='green')
+        # plotter.plot_traj_data(dtdp_list_for_latency, plot_name='Msight detection', color='red')
+        # plotter.plot_traj_data(gtdp_list_for_latency, plot_name='GPS RTK', color='blue')
+        # plotter.fig.show()
         time_diff = np.array([dtdp.time - gtdp_list_for_latency[min_dis_match_idx[i]].time for (i, dtdp) in
                               enumerate(dtdp_list_for_latency) if min_dis_match_idx[i] != -1])
         latency = np.mean(time_diff) / 1e9

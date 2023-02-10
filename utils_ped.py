@@ -27,7 +27,7 @@ class PedRTKData(PedData):
 
     def load_data_from_csv(self):
         df = pd.read_csv(self.file_path, header=None)
-        print(df)
+        # print(df)
         df.rename(columns={
             0: 'hhmmss',
             1: 'lat',

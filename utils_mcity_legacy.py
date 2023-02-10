@@ -12,11 +12,11 @@ import json
 
 RADIUS = 1000
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--trial-name', default='3')
-parser.add_argument('--experiment-name', default='11-15-2022')
-parser.add_argument('--config-file', '-c', help="configuration file path", default='experiment_settings.yml')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--trial-name', default='3')
+# parser.add_argument('--experiment-name', default='11-15-2022')
+# parser.add_argument('--config-file', '-c', help="configuration file path", default='experiment_settings.yml')
+# args = parser.parse_args()
 
 # with open(args.config_file, 'r') as f:
 #     yaml_settings = yaml.safe_load(f)
