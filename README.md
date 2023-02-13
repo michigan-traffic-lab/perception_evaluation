@@ -3,6 +3,8 @@ This repository contains code and resources for evaluating the performance of a 
 
 TODO:
 - [ ] Unify the data format for different perception systems
+- [ ] Design better configuration file for testing
+- [ ] Support multi-object evaluation
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
