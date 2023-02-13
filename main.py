@@ -2,7 +2,7 @@ import argparse
 from utils_mcity_legacy import CAVData, DetectionData
 from evaluator import Evaluator
 import numpy as np
-from utils import prepare_data, get_detection_file_path
+from utils import get_detection_file_path
 import os
 import yaml
 
@@ -13,15 +13,15 @@ parser = argparse.ArgumentParser(prog='EvaluationSettingParser',
                                               the perception evaluation program')
 parser.add_argument('-d', '--data-root',
                     type=str,
-                    default='example_data/',
+                    required=True,
                     help='the root dir of the testing data')
 parser.add_argument('-n', '--data-name',
-                    default='01-05-2023',
+                    required=True,
                     type=str,
                     help='the name of the testing, often represented by its testing date')
 parser.add_argument('-s', '--system',
                     type=str,
-                    default='Bluecity',
+                    required=True,
                     choices=['Bluecity', 'Derq', 'MSight'],
                     help='The perception system you want to evaluate: Bluecity, Derq, or MSight')
 parser.add_argument('-l', '--latency',
@@ -39,6 +39,8 @@ parser.add_argument('--visualize', action='store_true')
 def veh_evaluation(data_dir, args, cfg):
     # evaluate system latency
     if args.latency == -1:
+        if cfg['LATENCY_TRIAL_IDS'] == []:
+            raise ValueError('A valid LATENCY_TRIAL_IDS is required')
         print('Estimating system vehicle detection latency...')
         latency_list = []
         for trial_id in cfg['LATENCY_TRIAL_IDS']:
@@ -68,51 +70,23 @@ def veh_evaluation(data_dir, args, cfg):
     id_switch_list = []
     id_consistency_list = []
     mota_list = []
-    for trial_id in cfg['SINGLE_VEH_TRIAL_IDS']:
-        det_traj_file = get_detection_file_path(
-            args.system, data_dir, trial_id)
-        cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{trial_id}.txt'
-        cav_1_speed_file = f'{data_dir}/gts/gps_vel_{trial_id}.txt'
-        vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
-                               gps_type='oxford')
-        detection_data = DetectionData(
-            det_traj_file, plot_name='detection system 1', detection_type=args.system)
 
-        print(f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
-        # evaluate accuracy
-        evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
-                              det_freq=cfg['DET_FREQUENCY'], gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'],
-                              roi_radius=50)
-        fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
-            visualize=args.visualize)
-        fp_list.append(fp)
-        fn_list.append(fn)
-        det_freq_list.append(det_freq)
-        lat_error_list.append(lat_error)
-        lon_error_list.append(lon_error)
-        id_switch_list.append(id_switch)
-        id_consistency_list.append(id_consistency)
-        mota_list.append(mota)
-    # evaluate perception system on two-vehicle trips
-    print('Evaluating system perception performance on two-vehicle scenerios...')
-    for trial_id in cfg['TWO_VEH_TRIAL_IDS']:
-        for veh in ['veh1', 'veh2']:
+    if cfg['SINGLE_VEH_TRIAL_IDS'] != []:
+        for trial_id in cfg['SINGLE_VEH_TRIAL_IDS']:
             det_traj_file = get_detection_file_path(
-                args.system, data_dir, trial_id, veh)
-            cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{veh}_{trial_id}.txt'
-            cav_1_speed_file = f'{data_dir}/gts/gps_vel_{veh}_{trial_id}.txt'
+                args.system, data_dir, trial_id)
+            cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{trial_id}.txt'
+            cav_1_speed_file = f'{data_dir}/gts/gps_vel_{trial_id}.txt'
             vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
-                                   gps_type='oxford')
+                                gps_type='oxford')
             detection_data = DetectionData(
                 det_traj_file, plot_name='detection system 1', detection_type=args.system)
 
-            print(
-                f'++++++++++++++++++ For trip {trial_id} {veh} +++++++++++++++++++')
+            print(f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
             # evaluate accuracy
             evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
-                                  det_freq=cfg['DET_FREQUENCY'],
-                                  gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'] if veh == 'veh1' else cfg['GROUND_TRUTH_FREQUENCY_VEH2'],
-                                  center_latlng=cfg['CENTER_COR'], roi_radius=50)
+                                det_freq=cfg['DET_FREQUENCY'], gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'],
+                                roi_radius=50)
             fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
                 visualize=args.visualize)
             fp_list.append(fp)
@@ -123,7 +97,42 @@ def veh_evaluation(data_dir, args, cfg):
             id_switch_list.append(id_switch)
             id_consistency_list.append(id_consistency)
             mota_list.append(mota)
+
+    # evaluate perception system on two-vehicle trips
+    if cfg['TWO_VEH_TRIAL_IDS'] != []:
+        print('Evaluating system perception performance on two-vehicle scenerios...')
+        for trial_id in cfg['TWO_VEH_TRIAL_IDS']:
+            for veh in ['veh1', 'veh2']:
+                det_traj_file = get_detection_file_path(
+                    args.system, data_dir, trial_id, veh)
+                cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{veh}_{trial_id}.txt'
+                cav_1_speed_file = f'{data_dir}/gts/gps_vel_{veh}_{trial_id}.txt'
+                vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
+                                    gps_type='oxford')
+                detection_data = DetectionData(
+                    det_traj_file, plot_name='detection system 1', detection_type=args.system)
+
+                print(
+                    f'++++++++++++++++++ For trip {trial_id} {veh} +++++++++++++++++++')
+                # evaluate accuracy
+                evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
+                                    det_freq=cfg['DET_FREQUENCY'],
+                                    gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'] if veh == 'veh1' else cfg['GROUND_TRUTH_FREQUENCY_VEH2'],
+                                    center_latlng=cfg['CENTER_COR'], roi_radius=50)
+                fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
+                    visualize=args.visualize)
+                fp_list.append(fp)
+                fn_list.append(fn)
+                det_freq_list.append(det_freq)
+                lat_error_list.append(lat_error)
+                lon_error_list.append(lon_error)
+                id_switch_list.append(id_switch)
+                id_consistency_list.append(id_consistency)
+                mota_list.append(mota)
     # summarizing results
+    
+    if cfg['SINGLE_VEH_TRIAL_IDS'] == [] and cfg['TWO_VEH_TRIAL_IDS']:
+        raise ValueError('SINGLE_VEH_TRIAL_IDS and TWO_VEH_TRIAL_IDS can not both be empty')
     mean_fp = np.mean(np.array(fp_list))
     mean_fn = np.mean(np.array(fn_list))
     mean_det_freq = np.mean(np.array(det_freq_list))
@@ -151,6 +160,8 @@ def veh_evaluation(data_dir, args, cfg):
 
 
 def ped_evaluation(data_dir, args, cfg):
+    if cfg['PED_TRIAL_IDS'] == []:
+        return
     global PED_LATENCY
     PED_LATENCY = args.latency
     if PED_LATENCY is None:
@@ -160,8 +171,7 @@ def ped_evaluation(data_dir, args, cfg):
     # evaluate perception system on single-vehicle trips
     print('Evaluating system perception performance on ped...')
 
-    m, d, y = data_dir.split('/')[-1].split('-')
-    local_date_str = '-'.join([y, m, d])
+    local_date_str = cfg['DATE']
     fp_list = []
     fn_list = []
     det_freq_list = []
@@ -230,5 +240,4 @@ if __name__ == '__main__':
     testing_config_path = os.path.join(testing_root_dir, 'config.yaml')
     cfg = yaml.safe_load(open(testing_config_path))
     veh_evaluation(testing_root_dir, args, cfg)
-    if cfg['PED_TRIAL_IDS'] != []:
-        ped_evaluation(testing_root_dir, args, cfg)
+    ped_evaluation(testing_root_dir, args, cfg)

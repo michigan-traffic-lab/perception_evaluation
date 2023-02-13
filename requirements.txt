@@ -1,0 +1,7 @@
+numpy
+yaml
+geopy
+plotly
+matplotlib
+pandas
+json

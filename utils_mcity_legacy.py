@@ -1,15 +1,10 @@
 '''
 Legacy data processing code to process the input GPS and detection data
 '''
-import plotly.graph_objects as go
-import pathlib
 import datetime
 import csv
 import numpy as np
-import argparse
-from pathlib import Path
 import pandas as pd
-import yaml
 from os.path import exists
 import json
 
@@ -130,7 +125,7 @@ class DetectionData(ExperimentData):
             with open(self.files) as det_traj:
                 for row in csv.DictReader(det_traj, delimiter=';'):
                     self.add_detection_data_conti(row)
-        elif self.detection_type == 'Msight':
+        elif self.detection_type == 'MSight':
             with open(self.files) as det_traj:
                 for row in csv.DictReader(det_traj):
                     self.add_detection_data_Msight(row)
