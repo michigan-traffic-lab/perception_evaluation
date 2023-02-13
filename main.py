@@ -13,15 +13,15 @@ parser = argparse.ArgumentParser(prog='EvaluationSettingParser',
                                               the perception evaluation program')
 parser.add_argument('-d', '--data-root',
                     type=str,
-                    default='example_data/',
+                    required=True,
                     help='the root dir of the testing data')
 parser.add_argument('-n', '--data-name',
-                    default='2022-11-15',
+                    required=True,
                     type=str,
                     help='the name of the testing, often represented by its testing date')
 parser.add_argument('-s', '--system',
                     type=str,
-                    default='MSight',
+                    required=True,
                     choices=['Bluecity', 'Derq', 'MSight'],
                     help='The perception system you want to evaluate: Bluecity, Derq, or MSight')
 parser.add_argument('-l', '--latency',
