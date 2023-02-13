@@ -113,14 +113,23 @@ def prepare_data(dt, gt, cate='veh', source='Bluecity'):
                                 )
                 )
         if source == 'Derq':
-                dtdp_list.append(
-                    DataPoint(id=dt.obj_ids[i],
-                                time=float(dt.datetime[i]),
-                                lat=dt.lats[i],
-                                lon=dt.longs[i],
-                                speed=dt.speeds[i]
-                                )
-                )
+            dtdp_list.append(
+                DataPoint(id=dt.obj_ids[i],
+                            time=float(dt.datetime[i]),
+                            lat=dt.lats[i],
+                            lon=dt.longs[i],
+                            speed=dt.speeds[i]
+                            )
+            )
+        if source == 'MSight':
+            dtdp_list.append(
+                DataPoint(id=dt.obj_ids[i],
+                            time=float(dt.datetime[i]),
+                            lat=dt.lats[i],
+                            lon=dt.longs[i],
+                            speed=dt.speeds[i]
+                            )
+            )
             
 
     dtdp_list = sorted(dtdp_list, key=lambda x: x.time)
@@ -153,3 +162,8 @@ def get_detection_file_path(system, data_dir, trial_id, vehicle_id=None):
             return f'{data_dir}/dets/edge_DSRC_BSM_send_{trial_id}.csv'
         else:
             return f'{data_dir}/dets/edge_DSRC_BSM_send_{trial_id}_{vehicle_id}.csv'
+    elif system == 'MSight':
+        if vehicle_id == None:
+            return f'{data_dir}/dets/Test{trial_id}_MsightObjectList.csv'
+        else:
+            return f'{data_dir}/dets/Test{trial_id}_MsightObjectList_{vehicle_id}.csv'

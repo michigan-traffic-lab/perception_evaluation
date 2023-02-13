@@ -125,7 +125,7 @@ class DetectionData(ExperimentData):
             with open(self.files) as det_traj:
                 for row in csv.DictReader(det_traj, delimiter=';'):
                     self.add_detection_data_conti(row)
-        elif self.detection_type == 'Msight':
+        elif self.detection_type == 'MSight':
             with open(self.files) as det_traj:
                 for row in csv.DictReader(det_traj):
                     self.add_detection_data_Msight(row)

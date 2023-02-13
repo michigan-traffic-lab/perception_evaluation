@@ -1,6 +1,9 @@
 # Perception Sysmtem Evaluation
 This repository contains code and resources for evaluating the performance of a perception system. The evaluations for Derq, Bluecity, and MSight systems are supported.
 
+TODO:
+- [ ] Unify the data format for different perception systems
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -82,7 +85,7 @@ For example, to evaluate a testing on `2023-01-05` for Bluecity system, run
 python main.py --data-root example_data --data-name 2023-01-05 --system Bluecity
 ```
 
-## Author
+## Developers
 Depu Meng, Zihao Wang, Rusheng Zhang, Shengyin Shen
 
 ## Contact
