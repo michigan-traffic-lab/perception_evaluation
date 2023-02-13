@@ -1,15 +1,10 @@
 '''
 Legacy data processing code to process the input GPS and detection data
 '''
-import plotly.graph_objects as go
-import pathlib
 import datetime
 import csv
 import numpy as np
-import argparse
-from pathlib import Path
 import pandas as pd
-import yaml
 from os.path import exists
 import json
 

@@ -160,8 +160,7 @@ def ped_evaluation(data_dir, args, cfg):
     # evaluate perception system on single-vehicle trips
     print('Evaluating system perception performance on ped...')
 
-    m, d, y = data_dir.split('/')[-1].split('-')
-    local_date_str = '-'.join([y, m, d])
+    local_date_str = cfg['DATE']
     fp_list = []
     fn_list = []
     det_freq_list = []
