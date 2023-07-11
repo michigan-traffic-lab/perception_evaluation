@@ -5,6 +5,7 @@ import numpy as np
 from utils import get_detection_file_path
 import os
 import yaml
+from pathlib import Path
 
 from utils_ped import PedRTKData
 
@@ -236,8 +237,14 @@ def ped_evaluation(data_dir, args, cfg):
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    testing_root_dir = os.path.join(args.data_root, args.data_name)
-    testing_config_path = os.path.join(testing_root_dir, 'config.yaml')
+    testing_root_dir = Path(args.data_root) / args.data_name
+    testing_config_path = Path(testing_root_dir) / 'config.yaml'
+    # print(testing_config_path)
+    # with open(testing_config_path, 'r') as f:
+    #     for l in f.readlines():
+    #         print(l)
+        # cfg = yaml.safe_load(f)
+        # print(cfg)
     cfg = yaml.safe_load(open(testing_config_path))
     veh_evaluation(testing_root_dir, args, cfg)
     ped_evaluation(testing_root_dir, args, cfg)

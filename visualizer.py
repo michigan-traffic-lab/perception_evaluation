@@ -1,7 +1,9 @@
 import plotly.graph_objects as go
-import matplotlib
-import matplotlib.cm as cmx
-import numpy as np
+# import matplotlib
+# import matplotlib.cm as cmx
+# import numpy as np
+import json
+import argparse
 
 cmaps = ['cyan', 'green', 'yellow', 'orange', 'pink', 'purple']
 
@@ -39,3 +41,20 @@ class Plotter:
                 matched_gtdp = gtdp_list[match_indices[dtdp_idx]]
             self.fig.add_trace(go.Scattermapbox(lat=[matched_gtdp.lat, dtdp.lat], lon=[matched_gtdp.lon, dtdp.lon], mode='lines',
             marker={'size': 10, 'color': color}, name='matching'))
+
+if __name__ == '__main__':
+    from utils import DataPoint
+    argparser = argparse.ArgumentParser(description='Visualize the trajectory data.')
+    argparser.add_argument('-i', '--input', type=str, help='the input JSON file.')
+    args = argparser.parse_args()
+    center_lat = 42.30092239379880
+    center_lon = -83.69866180419920
+    with open(args.input, 'r') as f:
+        data = json.load(f)
+    dtdp_list = []
+    for d in data:
+        for obj in d['objs']:
+            dtdp_list.append(DataPoint(id=obj['id'], lat=obj['lat'], lon=obj['lon'], time=d['timestamp']))
+    plotter = Plotter(center_lat, center_lon)
+    plotter.plot_traj_data(dtdp_list, 'custom')
+    plotter.fig.show()

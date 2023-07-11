@@ -1,7 +1,6 @@
 numpy
-yaml
+pyyaml
 geopy
 plotly
 matplotlib
 pandas
-json
