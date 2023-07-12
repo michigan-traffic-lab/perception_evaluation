@@ -212,6 +212,7 @@ class DetectionData(ExperimentData):
         if len(row['objs']) != 0:
             for obj in row['objs']:
                 current_t = row['timestamp'] * 1e9
+                # print(current_t, obj['id'])
                 lat = obj['lat']
                 long = obj['lon']
                 self.datetime.append(current_t)

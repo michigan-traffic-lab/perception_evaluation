@@ -6,6 +6,8 @@ from utils import get_detection_file_path
 import os
 import yaml
 from pathlib import Path
+from utils import prepare_data
+from visualizer import Plotter
 
 from utils_ped import PedRTKData
 
@@ -36,8 +38,11 @@ parser.add_argument('-t', '--threshold',
                     help='The lateral distance threshold for positional evaluations')
 parser.add_argument('--visualize', action='store_true')
 
+evaluator = None
+
 
 def veh_evaluation(data_dir, args, cfg):
+    global evaluator
     # evaluate system latency
     if args.latency == -1:
         if cfg['LATENCY_TRIAL_IDS'] == []:
@@ -53,13 +58,24 @@ def veh_evaluation(data_dir, args, cfg):
                                    gps_type='oxford')
             detection_data = DetectionData(
                 det_traj_file, plot_name='detection system 1', detection_type=args.system)
+            dtdp_list, gtdp_list = prepare_data(
+                detection_data, vehicle_data, cate=evaluator.cate, source=evaluator.source)
+            dtdp_list, gtdp_list = evaluator.remove_outside_data(
+                dtdp_list, gtdp_list, inplace=False, radius=20)
+
             print(
                 f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
-            evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=None, det_freq=cfg['DET_FREQUENCY'],
+            # TODO: change vehicle_data to gt_data
+            evaluator = Evaluator(args.system, 'veh', 1.5, latency=None, det_freq=cfg['DET_FREQUENCY'],
                                   gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'], roi_radius=50)
-            latency_list.append(evaluator.compute_latency())
-        args.latency = np.mean(np.array(latency_list))
-    print(f'Estimated system vehicle detection latency: {args.latency} s')
+            latency = evaluator.compute_latency(dtdp_list, gtdp_list)
+            print(f'Estimated system vehicle detection latency: {latency} s')
+            latency_list.append(latency)
+        # args.latency = np.mean(np.array(latency_list))
+        latency = np.mean(np.array(latency_list))
+        evaluator.latency = latency
+    else:
+        evaluator.latency = args.latency
 
     # evaluate perception system on single-vehicle trips
     print('Evaluating system perception performance on single-vehicle scenerios...')
@@ -79,85 +95,127 @@ def veh_evaluation(data_dir, args, cfg):
             cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{trial_id}.txt'
             cav_1_speed_file = f'{data_dir}/gts/gps_vel_{trial_id}.txt'
             vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
-                                gps_type='oxford')
+                                   gps_type='oxford')
             detection_data = DetectionData(
                 det_traj_file, plot_name='detection system 1', detection_type=args.system)
 
-            print(f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
+            print(
+                f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
+            raw_dtdp_list, raw_gtdp_list = prepare_data(
+                detection_data, vehicle_data, cate=evaluator.cate, source=evaluator.source)
+            dtdp_list, gtdp_list = evaluator.remove_outside_data(
+                raw_dtdp_list, raw_gtdp_list, inplace=False)
+            dtdp_list, gtdp_list = evaluator.compute_matching(
+                dtdp_list, gtdp_list)
+            dtdp_list, gtdp_list = evaluator.compute_and_store_position_error(
+                dtdp_list, gtdp_list)
+
+            num_false_positive, false_positive_rate = evaluator.compute_false_positives(
+                dtdp_list)
+            # print(dtdp_list[0], gtdp_list[100])
+            print(
+                f"nuber of FP: {num_false_positive}, FP rate {false_positive_rate}")
+
+            fn_dtdp_list, fn_gtdp_list = evaluator.remove_outside_data(
+                dtdp_list, gtdp_list, inplace=False, extra_buffer_for_gt=0)
+            # for false negative detection, we make the roi range exactly the same
+            num_exp_det = evaluator.number_of_expected_detection(fn_gtdp_list)
+            num_false_negative, false_negative_rate = evaluator.compute_false_negatives(
+                fn_dtdp_list, fn_gtdp_list, num_exp_det=num_exp_det)
+            print(
+                f"number of FN: {num_false_negative}, FN rate: {false_negative_rate}")
+
+            lat_error, lon_error = evaluator.compute_lat_lon_error(dtdp_list)
+            print(f"lat error: {lat_error}, lon error: {lon_error}")
+
+            id_switch = evaluator.compute_id_switch(dtdp_list, gtdp_list)
+            print(f"number of ID switch: {id_switch}")
+
+            mota = evaluator.compute_mota(num_false_positive, num_false_negative, id_switch, num_exp_det)
+            print(f"MOTA: {mota}")
+
+            motp = evaluator.compute_motp(dtdp_list)
+            print(f"MOTP: {motp}")
+
+            # plotter = Plotter(center_lat=evaluator.center_lat, center_lon=evaluator.center_lon)
+            # # plotter.plot_matching(fn_dtdp_list, fn_gtdp_list, color='green')
+            # plotter.plot_traj_data(gtdp_list, plot_name='GPS RTK', color='blue')
+            # plotter.plot_traj_data(dtdp_list, plot_name='Msight detection', color='red')
+            # plotter.fig.show()
             # evaluate accuracy
-            evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
-                                det_freq=cfg['DET_FREQUENCY'], gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'],
-                                roi_radius=50)
-            fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
-                visualize=args.visualize)
-            fp_list.append(fp)
-            fn_list.append(fn)
-            det_freq_list.append(det_freq)
-            lat_error_list.append(lat_error)
-            lon_error_list.append(lon_error)
-            id_switch_list.append(id_switch)
-            id_consistency_list.append(id_consistency)
-            mota_list.append(mota)
+            # evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
+            #                     det_freq=cfg['DET_FREQUENCY'], gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'],
+            #                     roi_radius=50)
+            # fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
+            #     visualize=args.visualize)
+            # fp_list.append(fp)
+            # fn_list.append(fn)
+            # det_freq_list.append(det_freq)
+            # lat_error_list.append(lat_error)
+            # lon_error_list.append(lon_error)
+            # id_switch_list.append(id_switch)
+            # id_consistency_list.append(id_consistency)
+            # mota_list.append(mota)
 
     # evaluate perception system on two-vehicle trips
-    if cfg['TWO_VEH_TRIAL_IDS'] != []:
-        print('Evaluating system perception performance on two-vehicle scenerios...')
-        for trial_id in cfg['TWO_VEH_TRIAL_IDS']:
-            for veh in ['veh1', 'veh2']:
-                det_traj_file = get_detection_file_path(
-                    args.system, data_dir, trial_id, veh)
-                cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{veh}_{trial_id}.txt'
-                cav_1_speed_file = f'{data_dir}/gts/gps_vel_{veh}_{trial_id}.txt'
-                vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
-                                    gps_type='oxford')
-                detection_data = DetectionData(
-                    det_traj_file, plot_name='detection system 1', detection_type=args.system)
+    # if cfg['TWO_VEH_TRIAL_IDS'] != []:
+    #     print('Evaluating system perception performance on two-vehicle scenerios...')
+    #     for trial_id in cfg['TWO_VEH_TRIAL_IDS']:
+    #         for veh in ['veh1', 'veh2']:
+    #             det_traj_file = get_detection_file_path(
+    #                 args.system, data_dir, trial_id, veh)
+    #             cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{veh}_{trial_id}.txt'
+    #             cav_1_speed_file = f'{data_dir}/gts/gps_vel_{veh}_{trial_id}.txt'
+    #             vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
+    #                                 gps_type='oxford')
+    #             detection_data = DetectionData(
+    #                 det_traj_file, plot_name='detection system 1', detection_type=args.system)
 
-                print(
-                    f'++++++++++++++++++ For trip {trial_id} {veh} +++++++++++++++++++')
-                # evaluate accuracy
-                evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
-                                    det_freq=cfg['DET_FREQUENCY'],
-                                    gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'] if veh == 'veh1' else cfg['GROUND_TRUTH_FREQUENCY_VEH2'],
-                                    center_latlng=cfg['CENTER_COR'], roi_radius=50)
-                fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
-                    visualize=args.visualize)
-                fp_list.append(fp)
-                fn_list.append(fn)
-                det_freq_list.append(det_freq)
-                lat_error_list.append(lat_error)
-                lon_error_list.append(lon_error)
-                id_switch_list.append(id_switch)
-                id_consistency_list.append(id_consistency)
-                mota_list.append(mota)
-    # summarizing results
-    
-    if cfg['SINGLE_VEH_TRIAL_IDS'] == [] and cfg['TWO_VEH_TRIAL_IDS']:
-        raise ValueError('SINGLE_VEH_TRIAL_IDS and TWO_VEH_TRIAL_IDS can not both be empty')
-    mean_fp = np.mean(np.array(fp_list))
-    mean_fn = np.mean(np.array(fn_list))
-    mean_det_freq = np.mean(np.array(det_freq_list))
-    mean_lat_error = np.mean(np.array(lat_error_list))
-    mean_lon_error = np.mean(np.array(lon_error_list))
-    mean_id_switch = np.mean(np.array(id_switch_list))
-    mean_id_consistency = np.mean(np.array(id_consistency_list))
-    mean_mota = np.mean(np.array(mota_list))
-    print('Overall performance on vehicle: ')
-    print('-------------------------------------------------------')
-    print('---------- Overall Evaluation Results -----------------')
-    print('-------------------------------------------------------')
-    print(f'False Positive rate\t\t: {mean_fp:.4f}')
-    print(f'False Negative rate\t\t: {mean_fn:.4f}')
-    print(f'Actual detection frequency\t: {mean_det_freq:.4f}')
-    print(f'Lateral error\t\t\t: {mean_lat_error:.4f}')
-    print(f'Longitudinal error\t\t: {mean_lon_error:.4f}')
-    print(f'System Latency\t\t\t: {args.latency:.4f}')
-    print(f'ID switch\t\t\t: {mean_id_switch:.4f}')
-    print(f'ID consistency\t\t\t: {mean_id_consistency:.4f}')
-    print(f'MOTA\t\t\t\t: {mean_mota:.4f}')
-    print('-------------------------------------------------------')
-    print('---------- End of Evaluation Results ------------------')
-    print('-------------------------------------------------------')
+    #             print(
+    #                 f'++++++++++++++++++ For trip {trial_id} {veh} +++++++++++++++++++')
+    #             # evaluate accuracy
+    #             evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
+    #                                 det_freq=cfg['DET_FREQUENCY'],
+    #                                 gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'] if veh == 'veh1' else cfg['GROUND_TRUTH_FREQUENCY_VEH2'],
+    #                                 center_latlng=cfg['CENTER_COR'], roi_radius=50)
+    #             fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
+    #                 visualize=args.visualize)
+    #             fp_list.append(fp)
+    #             fn_list.append(fn)
+    #             det_freq_list.append(det_freq)
+    #             lat_error_list.append(lat_error)
+    #             lon_error_list.append(lon_error)
+    #             id_switch_list.append(id_switch)
+    #             id_consistency_list.append(id_consistency)
+    #             mota_list.append(mota)
+    # # summarizing results
+
+    # if cfg['SINGLE_VEH_TRIAL_IDS'] == [] and cfg['TWO_VEH_TRIAL_IDS']:
+    #     raise ValueError('SINGLE_VEH_TRIAL_IDS and TWO_VEH_TRIAL_IDS can not both be empty')
+    # mean_fp = np.mean(np.array(fp_list))
+    # mean_fn = np.mean(np.array(fn_list))
+    # mean_det_freq = np.mean(np.array(det_freq_list))
+    # mean_lat_error = np.mean(np.array(lat_error_list))
+    # mean_lon_error = np.mean(np.array(lon_error_list))
+    # mean_id_switch = np.mean(np.array(id_switch_list))
+    # mean_id_consistency = np.mean(np.array(id_consistency_list))
+    # mean_mota = np.mean(np.array(mota_list))
+    # print('Overall performance on vehicle: ')
+    # print('-------------------------------------------------------')
+    # print('---------- Overall Evaluation Results -----------------')
+    # print('-------------------------------------------------------')
+    # print(f'False Positive rate\t\t: {mean_fp:.4f}')
+    # print(f'False Negative rate\t\t: {mean_fn:.4f}')
+    # print(f'Actual detection frequency\t: {mean_det_freq:.4f}')
+    # print(f'Lateral error\t\t\t: {mean_lat_error:.4f}')
+    # print(f'Longitudinal error\t\t: {mean_lon_error:.4f}')
+    # print(f'System Latency\t\t\t: {args.latency:.4f}')
+    # print(f'ID switch\t\t\t: {mean_id_switch:.4f}')
+    # print(f'ID consistency\t\t\t: {mean_id_consistency:.4f}')
+    # print(f'MOTA\t\t\t\t: {mean_mota:.4f}')
+    # print('-------------------------------------------------------')
+    # print('---------- End of Evaluation Results ------------------')
+    # print('-------------------------------------------------------')
 
 
 def ped_evaluation(data_dir, args, cfg):
@@ -243,8 +301,10 @@ if __name__ == '__main__':
     # with open(testing_config_path, 'r') as f:
     #     for l in f.readlines():
     #         print(l)
-        # cfg = yaml.safe_load(f)
-        # print(cfg)
+    # cfg = yaml.safe_load(f)
+    # print(cfg)
     cfg = yaml.safe_load(open(testing_config_path))
+    evaluator = Evaluator(args.system, 'veh', 1.5, latency=None, det_freq=cfg['DET_FREQUENCY'],
+                          gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'], roi_radius=50)
     veh_evaluation(testing_root_dir, args, cfg)
     ped_evaluation(testing_root_dir, args, cfg)
