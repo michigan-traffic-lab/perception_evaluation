@@ -11,6 +11,11 @@ from visualizer import Plotter
 
 from utils_ped import PedRTKData
 
+import sys
+
+assert sys.version_info >= (
+    3, 7), 'Please use Python 3.7 or higher, Python version before 3.7 will NOT produce the correct results.'
+
 parser = argparse.ArgumentParser(prog='EvaluationSettingParser',
                                  description='This parser specifies the settings for \
                                               the perception evaluation program')
@@ -39,6 +44,7 @@ parser.add_argument('-t', '--threshold',
 parser.add_argument('--visualize', action='store_true')
 
 evaluator = None
+cfg = None
 
 
 def veh_evaluation(data_dir, args, cfg):
@@ -58,22 +64,25 @@ def veh_evaluation(data_dir, args, cfg):
                                    gps_type='oxford')
             detection_data = DetectionData(
                 det_traj_file, plot_name='detection system 1', detection_type=args.system)
-            dtdp_list, gtdp_list = prepare_data(
+            raw_dtdps, raw_gtdps = prepare_data(
                 detection_data, vehicle_data, cate=evaluator.cate, source=evaluator.source)
-            dtdp_list, gtdp_list = evaluator.remove_outside_data(
-                dtdp_list, gtdp_list, inplace=False, radius=20)
+            evaluator = Evaluator(args.system, 'veh', 1.5, latency=None, det_freq=cfg['DET_FREQUENCY'],
+                                  gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'], roi_radius=50)
+            dtdps, gtdps = evaluator.remove_outside_data(
+                raw_dtdps, raw_gtdps, radius=20)
+            # gtdps.trajectories[0].sample_rate = cfg['GROUND_TRUTH_FREQUENCY_VEH1']
 
             print(
                 f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
             # TODO: change vehicle_data to gt_data
-            evaluator = Evaluator(args.system, 'veh', 1.5, latency=None, det_freq=cfg['DET_FREQUENCY'],
-                                  gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'], roi_radius=50)
-            latency = evaluator.compute_latency(dtdp_list, gtdp_list)
+
+            latency = evaluator.compute_latency(dtdps, gtdps)
             print(f'Estimated system vehicle detection latency: {latency} s')
             latency_list.append(latency)
         # args.latency = np.mean(np.array(latency_list))
         latency = np.mean(np.array(latency_list))
         evaluator.latency = latency
+        print(f'Estimated system vehicle detection latency: {latency} s')
     else:
         evaluator.latency = args.latency
 
@@ -101,41 +110,59 @@ def veh_evaluation(data_dir, args, cfg):
 
             print(
                 f'++++++++++++++++++ For trip {trial_id} +++++++++++++++++++')
-            raw_dtdp_list, raw_gtdp_list = prepare_data(
+            raw_dtdps, raw_gtdps = prepare_data(
                 detection_data, vehicle_data, cate=evaluator.cate, source=evaluator.source)
-            dtdp_list, gtdp_list = evaluator.remove_outside_data(
-                raw_dtdp_list, raw_gtdp_list, inplace=False)
-            dtdp_list, gtdp_list = evaluator.compute_matching(
-                dtdp_list, gtdp_list)
-            dtdp_list, gtdp_list = evaluator.compute_and_store_position_error(
-                dtdp_list, gtdp_list)
+            dtdps, gtdps = evaluator.remove_outside_data(
+                raw_dtdps, raw_gtdps, inplace=False)
+            evaluator.compute_matching_by_time(
+                dtdps, gtdps, inplace=True)
+            dtdps, gtdps = evaluator.compute_and_store_position_error(
+                dtdps, gtdps)
 
-            num_false_positive, false_positive_rate = evaluator.compute_false_positives(
-                dtdp_list)
-            # print(dtdp_list[0], gtdp_list[100])
+            num_false_positive, false_positive_rate, num_true_positive = evaluator.compute_false_positives(
+                dtdps)
+    #         # print(dtdp_list[0], gtdp_list[100])
             print(
-                f"nuber of FP: {num_false_positive}, FP rate {false_positive_rate}")
+                f"number of FP: {num_false_positive}, FP rate {false_positive_rate}")
 
-            fn_dtdp_list, fn_gtdp_list = evaluator.remove_outside_data(
-                dtdp_list, gtdp_list, inplace=False, extra_buffer_for_gt=0)
-            # for false negative detection, we make the roi range exactly the same
-            num_exp_det = evaluator.number_of_expected_detection(fn_gtdp_list)
+            fn_dtdps, fn_gtdps = evaluator.remove_outside_data(
+                raw_dtdps, raw_gtdps, inplace=False, extra_buffer_for_gt=0)
+    #         # for false negative detection, we make the roi range exactly the same
+            fn_gtdps.trajectories[0].sample_rate = float(
+                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+            num_exp_det = evaluator.number_of_expected_detection(fn_gtdps)
+
             num_false_negative, false_negative_rate = evaluator.compute_false_negatives(
-                fn_dtdp_list, fn_gtdp_list, num_exp_det=num_exp_det)
+                fn_dtdps, fn_gtdps, num_exp_det=num_exp_det)
             print(
                 f"number of FN: {num_false_negative}, FN rate: {false_negative_rate}")
 
-            lat_error, lon_error = evaluator.compute_lat_lon_error(dtdp_list)
+            lat_error, lon_error = evaluator.compute_lat_lon_error(dtdps)
             print(f"lat error: {lat_error}, lon error: {lon_error}")
 
-            id_switch = evaluator.compute_id_switch(dtdp_list, gtdp_list)
+            id_switch = evaluator.compute_id_switch(dtdps, gtdps)
             print(f"number of ID switch: {id_switch}")
 
-            mota = evaluator.compute_mota(num_false_positive, num_false_negative, id_switch, num_exp_det)
+            mota = evaluator.compute_mota(
+                num_false_positive, num_false_negative, id_switch, num_exp_det)
             print(f"MOTA: {mota}")
 
-            motp = evaluator.compute_motp(dtdp_list)
+            motp = evaluator.compute_motp(dtdps)
             print(f"MOTP: {motp}")
+
+            evaluator.clear_match(dtdps)
+            evaluator.clear_match(gtdps)
+
+            gtdps.trajectories[0].sample_rate = float(
+                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+            match_result, tpa, fpa, fna = evaluator.match_trajectories(
+                dtdps, gtdps)
+            
+            idf1 = evaluator.compute_idf1(tpa, fpa, fna)
+            print(f"IDF1: {idf1}")
+            hota = evaluator.compute_hota(tpa, fpa, fna, num_true_positive,
+                                            num_false_positive, num_false_negative)
+            print(f"HOTA: {hota}")
 
             # plotter = Plotter(center_lat=evaluator.center_lat, center_lon=evaluator.center_lon)
             # # plotter.plot_matching(fn_dtdp_list, fn_gtdp_list, color='green')

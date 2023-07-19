@@ -1,6 +1,6 @@
 import numpy as np
 from .utils import compute_minimum_distance_matching
-def compute_latency(dtdp_list, gtdp_list, dis_th=1.5, time_th=3):
+def compute_latency(dtdps, gtdps, dis_th=1.5, time_th=3):
     '''
     A roundtrip with overlapped trajectories
     First match the detection with the ground-truth points by minimum distance
@@ -8,6 +8,8 @@ def compute_latency(dtdp_list, gtdp_list, dis_th=1.5, time_th=3):
     '''
     # dtdp_list_for_latency, gtdp_list_for_latency = self._remove_outside_data(
     #     inplace=False, radius=20)
+    dtdp_list = dtdps.dp_list
+    gtdp_list = gtdps.dp_list
     min_dis_match_idx = compute_minimum_distance_matching(
         dtdp_list, gtdp_list, dis_th=dis_th, time_th=time_th)
     
