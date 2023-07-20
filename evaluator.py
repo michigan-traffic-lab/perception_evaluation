@@ -96,6 +96,23 @@ class Evaluator:
         for dp_idx, gtdp in enumerate(output_gtdp_list):
             gtdp.point_wise_match = output_dtdp_list[matched_dt_idx[dp_idx]]
         return TrajectorySet(output_dtdp_list), Trajectory(output_gtdp_list)
+    
+    def _match_frames_by_time(self, dtdps, gtdps):
+        gt_time = np.array([x for x in gtdps.dataframes.keys()])
+        det_time = np.array([x for x in dtdps.dataframes.keys()]) - self.latency * 1000000000
+        time_diff = np.abs(det_time[:, None] - gt_time[None, :])
+        gt_times = list(gtdps.dataframes.keys())
+        det_times = list(dtdps.dataframes.keys())
+        
+        matched_gt_idx = np.argmin(time_diff, axis=1)
+        for dp_idx, det_t in enumerate(dtdps.dataframes):
+            det_frame = dtdps.dataframes[det_t]
+            det_frame.match = gtdps.dataframes[gt_times[matched_gt_idx[dp_idx]]]
+        matched_dt_idx = np.argmin(time_diff, axis=0)
+        for dp_idx, gt_t in enumerate(gtdps.dataframes):
+            gt_frame = gtdps.dataframes[gt_t]
+            gt_frame.match = dtdps.dataframes[det_times[matched_dt_idx[dp_idx]]]
+
 
     # def _compute_matching_multiple_vehicles(self):
 
@@ -156,7 +173,6 @@ class Evaluator:
 
     def number_of_expected_detection(self, gtdps):
         num_exp_det = 0
-        # print('gtdps', gtdps)
         # if gtdps is a trajectory
         if isinstance(gtdps, Trajectory):
             gtdp_list = gtdps.dp_list
@@ -168,7 +184,7 @@ class Evaluator:
             gtdp_list = gtdp_traj.dp_list
             num_exp_det += (len(gtdp_list) - 1) * self.det_freq / \
                 float(gtdp_traj.sample_rate) + 1
-            return num_exp_det
+        return num_exp_det
 
     def compute_false_negatives(self, dtdps, gtdps, num_exp_det=None):
         '''
@@ -180,8 +196,8 @@ class Evaluator:
         num_tp_det = sum([1.0 for dtdp in dtdp_list if dtdp.tp == True])
         if num_exp_det is None:
             num_exp_det = self.number_of_expected_detection(gtdps)
-        print('expected number of detection', num_exp_det,
-              'number of detection', num_tp_det)
+        # print('expected number of detection', num_exp_det,
+        #       'number of detection', num_tp_det)
         num_false_negative = max(0.0, num_exp_det - num_tp_det)
         false_negative_rate = num_false_negative / num_exp_det
         return int(num_false_negative+0.5), false_negative_rate
@@ -304,13 +320,56 @@ class Evaluator:
             output_gtdp_list.remove(dp)
 
         if not inplace:
-            return TrajectorySet(output_dtdp_list), TrajectorySet(output_gtdp_list)
+            dtdps_out = TrajectorySet(output_dtdp_list)
+            gtdps_out = TrajectorySet(output_gtdp_list)
+            for t in dtdps_out.trajectories:
+                dtdps_out.trajectories[t].sample_rate = dtdps.trajectories[t].sample_rate
+            for t in gtdps_out.trajectories:
+                gtdps_out.trajectories[t].sample_rate = gtdps.trajectories[t].sample_rate
+            return dtdps_out, gtdps_out
 
     def clear_match(self, dps):
         for dp in dps.dp_list:
             dp.point_wise_match = None
             dp.traj_wise_match = None
             dp.tp = False
+
+    def match_points(self, dtdps, gtdps):
+        def _find_data_point(datapoints, id):
+            for dp in datapoints:
+                if dp.id == id:
+                    return dp
+            return None
+        self.clear_match(dtdps)
+        self.clear_match(gtdps)
+        gt_times = gtdps.dataframes.keys()
+        self._match_frames_by_time(dtdps, gtdps)
+        for t, det_t in enumerate(dtdps.dataframes):
+            det_frame = dtdps.dataframes[det_t]
+            if det_frame.match is not None:
+                gt_frame = det_frame.match
+                match_score = {k1: {k2: 0 for k2 in gt_frame.ids} for k1 in det_frame.ids}
+                for dtdp in det_frame.dp_list:
+                    for gtdp in gt_frame.dp_list:
+                        d = distance(dtdp.lat, dtdp.lon, gtdp.lat, gtdp.lon)
+                        match_score[dtdp.id][gtdp.id] = d
+                # print(match_score)
+                match_result, total_score = hungarian_matching(match_score, minimize=True)
+                for dtdp in det_frame.dp_list:
+                    matched_id = match_result[dtdp.id]
+                    dtdp.point_wise_match = _find_data_point(gt_frame.dp_list, matched_id)
+
+        
+        self.compute_and_store_position_error(dtdps, gtdps)
+        num_fp, fp_rate, num_tp = self.compute_false_positives(dtdps)
+        # we need to remove the points outside the ROI again for computing false negatives
+        dtdps_fn, gtdps_fn = self.remove_outside_data(
+                dtdps, gtdps, inplace=False, extra_buffer_for_gt=0)
+        expected_num_det = self.number_of_expected_detection(gtdps_fn)
+        num_fn, fn_rate = self.compute_false_negatives(dtdps_fn, gtdps_fn, num_exp_det=expected_num_det)
+        print('num_tp', num_tp, 'num_fp', num_fp, 'fp_rate', fp_rate, 'num_fn', num_fn, 'fn_rate', fn_rate)
+        return num_tp, num_fp, num_fn, fp_rate, fn_rate, expected_num_det
+
 
     def match_trajectories(self, dtdps, gtdps):
         match_score = {k1: {k2: 0 for k2 in gtdps.ids} for k1 in dtdps.ids}
@@ -323,7 +382,10 @@ class Evaluator:
                 num_fp, fp_rate, num_tp = self.compute_false_positives(t1)
                 # print('num_tp', num_tp, 'num_fp', num_fp, 'fp_rate', fp_rate)
                 match_score[k1][k2] += num_tp
+
+        # print('match_score', match_score)
         match_result, tpa = hungarian_matching(match_score)
+       
         # print('match_result', match_result, 'tpa', tpa)
         # total score is the number of matched points, which is tpa
         # calculate fpa
@@ -336,6 +398,8 @@ class Evaluator:
             dtdps.trajectories[k].match = gtdps.trajectories[match_result[k]]
             t1 = dtdps.trajectories[k]
             t2 = gtdps.trajectories[match_result[k]]
+            self.clear_match(t1)
+            self.clear_match(t2)
             self.compute_matching_by_time(t1, t2, inplace=True)
             self.compute_and_store_position_error(t1, t2)
             self.compute_false_positives(t1)

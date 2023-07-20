@@ -31,7 +31,8 @@ class CAVData(ExperimentData):
                 data_files) is list, 'for oxford gps type, must pass both basic and speed data file as a list of length two'
             for file in data_files:
                 if exists(file) == False:
-                    self.exist = False
+                    # self.exist = False
+                    pass
         else:
             if exists(data_files) == False:
                 self.exist = False
@@ -43,9 +44,9 @@ class CAVData(ExperimentData):
             with open(self.files[0]) as cav_traj:
                 for row in csv.DictReader(cav_traj, delimiter=','):
                     self.add_basic_data(row)
-            with open(self.files[1]) as cav_speed:
-                for row in csv.DictReader(cav_speed, delimiter=','):
-                    self.add_speed_data(row)
+            # with open(self.files[1]) as cav_speed:
+            #     for row in csv.DictReader(cav_speed, delimiter=','):
+            #         self.add_speed_data(row)
         elif self.gps_type == 'avalon':
             with open(self.files) as cav_traj:
                 for row in csv.reader(cav_traj, delimiter=','):

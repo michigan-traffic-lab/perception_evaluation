@@ -1,12 +1,15 @@
 from .utils import nested_dict_to_matrix
 from scipy.optimize import linear_sum_assignment
 
-def hungarian_matching(matching_scores):
+def hungarian_matching(matching_scores, minimize=False):
     # Convert the nested dictionary to a cost matrix
     matrix = nested_dict_to_matrix(matching_scores)
 
     # Convert scores to costs
-    cost_matrix = matrix.max() - matrix
+    if not minimize:
+        cost_matrix = matrix.max() - matrix
+    else:
+        cost_matrix = matrix
 
     # Apply the Hungarian algorithm to find the optimal assignment
     row_ind, col_ind = linear_sum_assignment(cost_matrix)

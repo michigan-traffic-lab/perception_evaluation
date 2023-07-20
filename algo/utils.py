@@ -47,7 +47,7 @@ class DataPoint:
         self.timestr = datetime.fromtimestamp(time / 1e9)
 
     def __str__(self):
-        return f'DataPoint(UTC time: {self.timestr}, ID: {self.id}, speed: {self.speed}, heading: {self.heading}, match: {self.match}, lat_error: {self.lat_error}, lon_error: {self.lon_error})'
+        return f'DataPoint(UTC time: {self.timestr}, ID: {self.id}, speed: {self.speed}, heading: {self.heading}, lat_error: {self.lat_error}, lon_error: {self.lon_error})'
 
     def __repr__(self) -> str:
         return self.__str__()
@@ -63,30 +63,43 @@ class DataFrame:
     def __init__(self, dp_list, time=None) -> None:
         self.dp_list = dp_list
         self.time = time
+        self.match = None
 
     def add_dp(self, dp):
         if dp.time != self.time:
             raise ValueError('time not match')
         self.dp_list.append(dp)
 
+    @property
+    def ids(self):
+        return [dp.id for dp in self.dp_list]
+
 
 class TrajectorySet:
-    def __init__(self, dp_list) -> None:
+    def __init__(self, dp_list, dataframes = None, trajectories = None) -> None:
         self.dp_list = dp_list
-        self.trajectories = {}  # id: trajectory
-        self.dataframes = []  # list of dataframe
+        if trajectories is None:
+            self.trajectories = {}  # id: trajectory
+        else:
+            self.trajectories = trajectories
+        if dataframes is None:
+            self.dataframes = {}
+        else:
+            self.dataframes = {}  # time: dataframe
         # print('++++++++++++++++++++++++++++++++++++++')
-        previous_time = None
         for dp in self.dp_list:
             # print(dp.time, 'time in trajectoryset ', dp.id)
-            t = int(dp.time)  # note that we will use int to represent time
-            if not t == previous_time:
-                self.dataframes.append(DataFrame(dp_list=[dp], time=t))
-                previous_time = t
-            if dp.id not in self.trajectories:
-                self.trajectories[dp.id] = Trajectory(dp_list=[dp], id=dp.id)
-            else:
-                self.trajectories[dp.id].add_dp(dp)
+            if dataframes is None:
+                t = int(dp.time)  # note that we will use int to represent time
+                if not t in self.dataframes:
+                    self.dataframes[t] = DataFrame(dp_list=[dp], time=t)
+                else:
+                    self.dataframes[t].add_dp(dp)
+            if trajectories is None:
+                if dp.id not in self.trajectories:
+                    self.trajectories[dp.id] = Trajectory(dp_list=[dp], id=dp.id)
+                else:
+                    self.trajectories[dp.id].add_dp(dp)
 
     @property
     def ids(self):

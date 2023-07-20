@@ -2,11 +2,10 @@ import argparse
 from utils_mcity_legacy import CAVData, DetectionData
 from evaluator import Evaluator
 import numpy as np
-from utils import get_detection_file_path
+from utils import get_detection_file_path, prepare_data, prepare_gt_data
 import os
 import yaml
 from pathlib import Path
-from utils import prepare_data
 from visualizer import Plotter
 
 from utils_ped import PedRTKData
@@ -88,14 +87,14 @@ def veh_evaluation(data_dir, args, cfg):
 
     # evaluate perception system on single-vehicle trips
     print('Evaluating system perception performance on single-vehicle scenerios...')
-    fp_list = []
-    fn_list = []
-    det_freq_list = []
-    lat_error_list = []
-    lon_error_list = []
-    id_switch_list = []
-    id_consistency_list = []
-    mota_list = []
+    # fp_list = []
+    # fn_list = []
+    # det_freq_list = []
+    # lat_error_list = []
+    # lon_error_list = []
+    # id_switch_list = []
+    # id_consistency_list = []
+    # mota_list = []
 
     if cfg['SINGLE_VEH_TRIAL_IDS'] != []:
         for trial_id in cfg['SINGLE_VEH_TRIAL_IDS']:
@@ -114,37 +113,59 @@ def veh_evaluation(data_dir, args, cfg):
                 detection_data, vehicle_data, cate=evaluator.cate, source=evaluator.source)
             dtdps, gtdps = evaluator.remove_outside_data(
                 raw_dtdps, raw_gtdps, inplace=False)
-            evaluator.compute_matching_by_time(
-                dtdps, gtdps, inplace=True)
-            dtdps, gtdps = evaluator.compute_and_store_position_error(
-                dtdps, gtdps)
+            # evaluator.compute_matching_by_time(
+            #     dtdps, gtdps, inplace=True)
+            # dtdps, gtdps = evaluator.compute_and_store_position_error(
+            #     dtdps, gtdps)
 
-            num_false_positive, false_positive_rate, num_true_positive = evaluator.compute_false_positives(
-                dtdps)
+            # num_false_positive, false_positive_rate, num_true_positive = evaluator.compute_false_positives(
+            #     dtdps)
     #         # print(dtdp_list[0], gtdp_list[100])
-            print(
-                f"number of FP: {num_false_positive}, FP rate {false_positive_rate}")
+    #         print(
+    #             f"number of FP: {num_false_positive}, FP rate {false_positive_rate}")
 
-            fn_dtdps, fn_gtdps = evaluator.remove_outside_data(
-                raw_dtdps, raw_gtdps, inplace=False, extra_buffer_for_gt=0)
-    #         # for false negative detection, we make the roi range exactly the same
-            fn_gtdps.trajectories[0].sample_rate = float(
+    #         fn_dtdps, fn_gtdps = evaluator.remove_outside_data(
+    #             raw_dtdps, raw_gtdps, inplace=False, extra_buffer_for_gt=0)
+    # #         # for false negative detection, we make the roi range exactly the same
+    #         fn_gtdps.trajectories[0].sample_rate = float(
+    #             cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+    #         num_exp_det = evaluator.number_of_expected_detection(fn_gtdps)
+
+    #         num_false_negative, false_negative_rate = evaluator.compute_false_negatives(
+    #             fn_dtdps, fn_gtdps, num_exp_det=num_exp_det)
+    #         print(
+    #             f"number of FN: {num_false_negative}, FN rate: {false_negative_rate}")
+
+    #         lat_error, lon_error = evaluator.compute_lat_lon_error(dtdps)
+    #         print(f"lat error: {lat_error}, lon error: {lon_error}")
+
+    #         id_switch = evaluator.compute_id_switch(dtdps, gtdps)
+    #         print(f"number of ID switch: {id_switch}")
+
+    #         mota = evaluator.compute_mota(
+    #             num_false_positive, num_false_negative, id_switch, num_exp_det)
+    #         print(f"MOTA: {mota}")
+
+    #         motp = evaluator.compute_motp(dtdps)
+    #         print(f"MOTP: {motp}")
+            evaluator.clear_match(dtdps)
+            evaluator.clear_match(gtdps)
+
+            gtdps.trajectories[0].sample_rate = float(
                 cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
-            num_exp_det = evaluator.number_of_expected_detection(fn_gtdps)
 
-            num_false_negative, false_negative_rate = evaluator.compute_false_negatives(
-                fn_dtdps, fn_gtdps, num_exp_det=num_exp_det)
-            print(
-                f"number of FN: {num_false_negative}, FN rate: {false_negative_rate}")
+            tp, fp, fn, fp_rate, fn_rate, num_exp_det = evaluator.match_points(
+                dtdps, gtdps)
+            print('true positive: ', tp, 'false positive: ',
+                  fp, 'false negative: ', fn)
+            print('false positive rate: ', fp_rate,
+                  'false negative rate: ', fn_rate)
 
-            lat_error, lon_error = evaluator.compute_lat_lon_error(dtdps)
-            print(f"lat error: {lat_error}, lon error: {lon_error}")
-
-            id_switch = evaluator.compute_id_switch(dtdps, gtdps)
-            print(f"number of ID switch: {id_switch}")
+            ids = evaluator.compute_id_switch(dtdps, gtdps)
+            print(f"number of ID switch: {ids}")
 
             mota = evaluator.compute_mota(
-                num_false_positive, num_false_negative, id_switch, num_exp_det)
+                fp, fn, ids, num_exp_det)
             print(f"MOTA: {mota}")
 
             motp = evaluator.compute_motp(dtdps)
@@ -157,18 +178,19 @@ def veh_evaluation(data_dir, args, cfg):
                 cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
             match_result, tpa, fpa, fna = evaluator.match_trajectories(
                 dtdps, gtdps)
-            
+
             idf1 = evaluator.compute_idf1(tpa, fpa, fna)
             print(f"IDF1: {idf1}")
-            hota = evaluator.compute_hota(tpa, fpa, fna, num_true_positive,
-                                            num_false_positive, num_false_negative)
+            hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
             print(f"HOTA: {hota}")
 
-            # plotter = Plotter(center_lat=evaluator.center_lat, center_lon=evaluator.center_lon)
+            
             # # plotter.plot_matching(fn_dtdp_list, fn_gtdp_list, color='green')
-            # plotter.plot_traj_data(gtdp_list, plot_name='GPS RTK', color='blue')
-            # plotter.plot_traj_data(dtdp_list, plot_name='Msight detection', color='red')
-            # plotter.fig.show()
+            if args.visualize:
+                plotter = Plotter(center_lat=evaluator.center_lat, center_lon=evaluator.center_lon)
+                plotter.plot_traj_data(gtdps.dp_list, plot_name='GPS RTK', color='blue')
+                plotter.plot_traj_data(dtdps.dp_list, plot_name='Msight detection', color='red')
+                plotter.fig.show()
             # evaluate accuracy
             # evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
             #                     det_freq=cfg['DET_FREQUENCY'], gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'], center_latlng=cfg['CENTER_COR'],
@@ -185,36 +207,92 @@ def veh_evaluation(data_dir, args, cfg):
             # mota_list.append(mota)
 
     # evaluate perception system on two-vehicle trips
-    # if cfg['TWO_VEH_TRIAL_IDS'] != []:
-    #     print('Evaluating system perception performance on two-vehicle scenerios...')
-    #     for trial_id in cfg['TWO_VEH_TRIAL_IDS']:
-    #         for veh in ['veh1', 'veh2']:
-    #             det_traj_file = get_detection_file_path(
-    #                 args.system, data_dir, trial_id, veh)
-    #             cav_1_rtk_file = f'{data_dir}/gts/gps_fix_{veh}_{trial_id}.txt'
-    #             cav_1_speed_file = f'{data_dir}/gts/gps_vel_{veh}_{trial_id}.txt'
-    #             vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
-    #                                 gps_type='oxford')
-    #             detection_data = DetectionData(
-    #                 det_traj_file, plot_name='detection system 1', detection_type=args.system)
+    if cfg['TWO_VEH_TRIAL_IDS'] != []:
+        print('Evaluating system perception performance on two-vehicle scenerios...')
+        for trial_id in cfg['TWO_VEH_TRIAL_IDS']:
+            print(
+                f'+++++++++++++++++++++++++++ For Trip {trial_id} ++++++++++++++++++++++++++++')
+            det_traj_file = get_detection_file_path(
+                args.system, data_dir, trial_id)
+            cav_1_rtk_file = f'{data_dir}/gts/gps_fix_veh1_{trial_id}.txt'
+            cav_1_speed_file = f'{data_dir}/gts/gps_vel_veh1_{trial_id}.txt'
 
-    #             print(
-    #                 f'++++++++++++++++++ For trip {trial_id} {veh} +++++++++++++++++++')
-    #             # evaluate accuracy
-    #             evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
-    #                                 det_freq=cfg['DET_FREQUENCY'],
-    #                                 gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'] if veh == 'veh1' else cfg['GROUND_TRUTH_FREQUENCY_VEH2'],
-    #                                 center_latlng=cfg['CENTER_COR'], roi_radius=50)
-    #             fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
-    #                 visualize=args.visualize)
-    #             fp_list.append(fp)
-    #             fn_list.append(fn)
-    #             det_freq_list.append(det_freq)
-    #             lat_error_list.append(lat_error)
-    #             lon_error_list.append(lon_error)
-    #             id_switch_list.append(id_switch)
-    #             id_consistency_list.append(id_consistency)
-    #             mota_list.append(mota)
+            cav_2_rtk_file = f'{data_dir}/gts/gps_fix_veh2_{trial_id}.txt'
+            cav_2_speed_file = f'{data_dir}/gts/gps_vel_veh2_{trial_id}.txt'
+
+            vehicle1_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
+                                    gps_type='oxford')
+            vehicle2_data = CAVData([cav_2_rtk_file, cav_2_speed_file], plot_name='CAV 2 trajectory recorded by RTK',
+                                    gps_type='oxford')
+            detection_data = DetectionData(
+                det_traj_file, plot_name='detection system 1', detection_type=args.system)
+            raw_dtdps, _ = prepare_data(
+                detection_data, vehicle1_data, cate=evaluator.cate, source=evaluator.source)
+            raw_gtdps = prepare_gt_data(vehicle1_data, vehicle2_data, cfg)
+            # print(len(raw_gtdps.dataframes))
+
+            dtdps, gtdps = evaluator.remove_outside_data(
+                raw_dtdps, raw_gtdps, inplace=False)
+
+            evaluator.clear_match(dtdps)
+            evaluator.clear_match(gtdps)
+
+            gtdps.trajectories[0].sample_rate = float(
+                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+            gtdps.trajectories[1].sample_rate = float(
+                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+
+            tp, fp, fn, fp_rate, fn_rate, num_exp_det = evaluator.match_points(
+                dtdps, gtdps)
+            print('true positive: ', tp, 'false positive: ',
+                  fp, 'false negative: ', fn)
+            print('false positive rate: ', fp_rate,
+                  'false negative rate: ', fn_rate)
+
+            ids = evaluator.compute_id_switch(dtdps, gtdps)
+            print(f"number of ID switch: {ids}")
+
+            mota = evaluator.compute_mota(
+                fp, fn, ids, num_exp_det)
+            print(f"MOTA: {mota}")
+
+            motp = evaluator.compute_motp(dtdps)
+            print(f"MOTP: {motp}")
+
+            match_result, tpa, fpa, fna = evaluator.match_trajectories(
+                dtdps, gtdps)
+
+            # print(match_result, tpa)
+            idf1 = evaluator.compute_idf1(tpa, fpa, fna)
+            print(f"IDF1: {idf1}")
+            hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
+            print(f"HOTA: {hota}")
+
+            
+            # # plotter.plot_matching(fn_dtdp_list, fn_gtdp_list, color='green')
+            if args.visualize:
+                plotter = Plotter(center_lat=evaluator.center_lat, center_lon=evaluator.center_lon)
+                plotter.plot_traj_data(gtdps.dp_list, plot_name='GPS RTK', color='blue')
+                plotter.plot_traj_data(dtdps.dp_list, plot_name='Msight detection', color='red')
+                plotter.fig.show()
+
+            # for veh in ['veh1', 'veh2']:
+
+            #     vehicle_data = CAVData([cav_1_rtk_file, cav_1_speed_file], plot_name='CAV 1 trajectory recorded by RTK',
+            #                         gps_type='oxford')
+            #     detection_data = DetectionData(
+            #         det_traj_file, plot_name='detection system 1', detection_type=args.system)
+
+            #     print(
+            #         f'++++++++++++++++++ For trip {trial_id} {veh} +++++++++++++++++++')
+            #     # evaluate accuracy
+            #     # evaluator = Evaluator(args.system, 'veh', 1.5, detection_data, vehicle_data, latency=args.latency,
+            #     #                     det_freq=cfg['DET_FREQUENCY'],
+            #     #                     gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH1'] if veh == 'veh1' else cfg['GROUND_TRUTH_FREQUENCY_VEH2'],
+            #     #                     center_latlng=cfg['CENTER_COR'], roi_radius=50)
+            #     fp, fn, det_freq, lat_error, lon_error, id_switch, id_consistency, mota = evaluator.evaluate(
+            #         visualize=args.visualize)
+            #     mota_list.append(mota)
     # # summarizing results
 
     # if cfg['SINGLE_VEH_TRIAL_IDS'] == [] and cfg['TWO_VEH_TRIAL_IDS']:
