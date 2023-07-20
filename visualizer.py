@@ -8,7 +8,7 @@ import argparse
 cmaps = ['cyan', 'green', 'yellow', 'orange', 'pink', 'purple']
 
 class Plotter:
-    def __init__(self, center_lat, center_lon):
+    def __init__(self, center_lat, center_lon, title='CAV Trajectories Recorded by RTK and Detected by CI'):
         self.fig = go.Figure()     
         self.center_lat = center_lat 
         self.center_lon = center_lon
@@ -17,7 +17,7 @@ class Plotter:
                 'accesstoken': 'pk.eyJ1Ijoiemh1aGoiLCJhIjoiY2ttdGF2bDd1MHEwbjJybzVxMTduOHVjbSJ9.wT_hzXAry0m33OrdaeTzRA',
                 'style': "satellite-streets", 'center': {'lat': (self.center_lat), 'lon': (self.center_lon)},
                 'zoom': 20},
-            showlegend=True, title_text='CAV Trajectories Recorded by RTK and Detected by CI')
+            showlegend=True, title_text=title)
         return
         
     def plot_traj_data(self, dp_list, plot_name, color=None):

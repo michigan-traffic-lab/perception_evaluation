@@ -25,6 +25,7 @@ class Evaluator:
         self.center_lat = center_latlng[0]
         self.center_lon = center_latlng[1]
         self.roi_radius = roi_radius
+        self.latency = latency
         # self._compute_det_frequency()
         # self._remove_outside_data()
 
@@ -355,7 +356,8 @@ class Evaluator:
                         match_score[dtdp.id][gtdp.id] = d
                 # print(match_score)
                 match_result, total_score = hungarian_matching(match_score, minimize=True)
-                for dtdp in det_frame.dp_list:
+                for dtdp_id in match_result:
+                    dtdp = _find_data_point(det_frame.dp_list, dtdp_id)
                     matched_id = match_result[dtdp.id]
                     dtdp.point_wise_match = _find_data_point(gt_frame.dp_list, matched_id)
 
