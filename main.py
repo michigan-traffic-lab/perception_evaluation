@@ -156,7 +156,7 @@ def veh_evaluation(data_dir, args, cfg):
             gtdps.trajectories[0].sample_rate = float(
                 cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
 
-            tp, fp, fn, fp_rate, fn_rate, num_exp_det = evaluator.match_points(
+            tp, fp, fn, fp_rate, fn_rate = evaluator.match_points(
                 dtdps, gtdps)
             print('true positive: ', tp, 'false positive: ',
                   fp, 'false negative: ', fn)
@@ -167,7 +167,7 @@ def veh_evaluation(data_dir, args, cfg):
             print(f"number of ID switch: {ids}")
 
             mota = evaluator.compute_mota(
-                fp, fn, ids, num_exp_det)
+                fp, fn, ids, len(dtdps.dp_list))
             print(f"MOTA: {mota}")
 
             motp = evaluator.compute_motp(dtdps)
@@ -247,7 +247,7 @@ def veh_evaluation(data_dir, args, cfg):
             gtdps.trajectories[1].sample_rate = float(
                 cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
 
-            tp, fp, fn, fp_rate, fn_rate, num_exp_det = evaluator.match_points(
+            tp, fp, fn, fp_rate, fn_rate = evaluator.match_points(
                 dtdps, gtdps)
             print('true positive: ', tp, 'false positive: ',
                   fp, 'false negative: ', fn)
@@ -258,7 +258,7 @@ def veh_evaluation(data_dir, args, cfg):
             print(f"number of ID switch: {ids}")
 
             mota = evaluator.compute_mota(
-                fp, fn, ids, num_exp_det)
+                fp, fn, ids, len(dtdps.dp_list))
             print(f"MOTA: {mota}")
 
             motp = evaluator.compute_motp(dtdps)
@@ -335,6 +335,7 @@ def ped_evaluation(data_dir, args, cfg):
     if cfg['PED_TRIAL_IDS'] == []:
         return
     evaluator.cate = 'ped'
+    evaluator.roi_radius = 30
     # global PED_LATENCY
     # PED_LATENCY = args.latency
     # if PED_LATENCY is None:
@@ -365,7 +366,7 @@ def ped_evaluation(data_dir, args, cfg):
         raw_dtdps, raw_gtdps = prepare_data(
             detection_data, ped_rtk_data, cate=evaluator.cate, source=evaluator.source)
         dtdps, gtdps = evaluator.remove_outside_data(
-            raw_dtdps, raw_gtdps, inplace=False, radius=30)
+            raw_dtdps, raw_gtdps, inplace=False)
         # print('number of pedestrian:', gtdps.num_traj, 'first pedestrian name:', list(gtdps.trajectories.keys())[0])
         gtdps.trajectories[0].sample_rate = float(
             cfg['GROUND_TRUTH_FREQUENCY_PED'])
@@ -374,7 +375,7 @@ def ped_evaluation(data_dir, args, cfg):
             f'++++++++++++++++++ For trip {trial_id}: Pedestrian +++++++++++++++++++')
         evaluator.clear_match(dtdps)
         evaluator.clear_match(gtdps)
-        tp, fp, fn, fp_rate, fn_rate, num_exp_det = evaluator.match_points(
+        tp, fp, fn, fp_rate, fn_rate = evaluator.match_points(
             dtdps, gtdps)
         print('true positive: ', tp, 'false positive: ',
                 fp, 'false negative: ', fn)
@@ -385,7 +386,7 @@ def ped_evaluation(data_dir, args, cfg):
         print(f"number of ID switch: {ids}")
 
         mota = evaluator.compute_mota(
-            fp, fn, ids, num_exp_det)
+            fp, fn, ids, len(dtdps.dp_list))
         print(f"MOTA: {mota}")
 
         motp = evaluator.compute_motp(dtdps)

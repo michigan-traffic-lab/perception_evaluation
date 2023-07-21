@@ -171,6 +171,16 @@ class Evaluator:
         num_true_positive = sum([1 for dtdp in dtdp_list if dtdp.tp is True])
         false_positive_rate = num_false_positive / len(dtdp_list)
         return num_false_positive, false_positive_rate, num_true_positive
+    
+    def compute_false_negatives(self, dtdps):
+        num_fn = 0
+        for t, det_frame in dtdps.dataframes.items():
+            if det_frame.match is not None:
+                gt_frame = det_frame.match
+                num_det = len([x for x in det_frame.dp_list if x.tp is True])
+                num_fn += len(gt_frame.dp_list) - num_det
+        return num_fn, num_fn / len(dtdps.dp_list)
+                    
 
     def number_of_expected_detection(self, gtdps):
         num_exp_det = 0
@@ -187,16 +197,17 @@ class Evaluator:
                 float(gtdp_traj.sample_rate) + 1
         return num_exp_det
 
-    def compute_false_negatives(self, dtdps, gtdps, num_exp_det=None):
+    def compute_false_negatives_by_frequency(self, dtdps, gtdps, num_exp_det=None):
         '''
         FN rate = (num_expected_detection - num_true_positive_detection) / num_expected_detection
         '''
-        dtdp_list = dtdps.dp_list
-        gtdp_list = gtdps.dp_list
+        dtdps_cut, gtdps_cut = self.remove_outside_data(dtdps, gtdps, extra_buffer_for_gt=0)
+        dtdp_list = dtdps_cut.dp_list
+        # gtdp_list = gtdps_cut.dp_list
 
         num_tp_det = sum([1.0 for dtdp in dtdp_list if dtdp.tp == True])
         if num_exp_det is None:
-            num_exp_det = self.number_of_expected_detection(gtdps)
+            num_exp_det = self.number_of_expected_detection(gtdps_cut)
         # print('expected number of detection', num_exp_det,
         #       'number of detection', num_tp_det)
         num_false_negative = max(0.0, num_exp_det - num_tp_det)
@@ -321,13 +332,20 @@ class Evaluator:
             output_gtdp_list.remove(dp)
 
         if not inplace:
-            dtdps_out = TrajectorySet(output_dtdp_list)
-            gtdps_out = TrajectorySet(output_gtdp_list)
-            for t in dtdps_out.trajectories:
-                dtdps_out.trajectories[t].sample_rate = dtdps.trajectories[t].sample_rate
-            for t in gtdps_out.trajectories:
-                gtdps_out.trajectories[t].sample_rate = gtdps.trajectories[t].sample_rate
-            return dtdps_out, gtdps_out
+            if isinstance(dtdps, TrajectorySet):
+                dtdps_out = TrajectorySet(output_dtdp_list)
+                gtdps_out = TrajectorySet(output_gtdp_list)
+                for t in dtdps_out.trajectories:
+                    dtdps_out.trajectories[t].sample_rate = dtdps.trajectories[t].sample_rate
+                for t in gtdps_out.trajectories:
+                    gtdps_out.trajectories[t].sample_rate = gtdps.trajectories[t].sample_rate
+                return dtdps_out, gtdps_out
+            elif isinstance(dtdps, Trajectory):
+                dtdps_out = Trajectory(output_dtdp_list)
+                gtdps_out = Trajectory(output_gtdp_list)
+                dtdps_out.sample_rate = dtdps.sample_rate
+                gtdps_out.sample_rate = gtdps.sample_rate
+                return dtdps_out, gtdps_out
 
     def clear_match(self, dps):
         for dp in dps.dp_list:
@@ -343,7 +361,6 @@ class Evaluator:
             return None
         self.clear_match(dtdps)
         self.clear_match(gtdps)
-        gt_times = gtdps.dataframes.keys()
         self._match_frames_by_time(dtdps, gtdps)
         for t, det_t in enumerate(dtdps.dataframes):
             det_frame = dtdps.dataframes[det_t]
@@ -362,15 +379,17 @@ class Evaluator:
                     dtdp.point_wise_match = _find_data_point(gt_frame.dp_list, matched_id)
 
         
+        
         self.compute_and_store_position_error(dtdps, gtdps)
         num_fp, fp_rate, num_tp = self.compute_false_positives(dtdps)
+        num_fn, fn_rate = self.compute_false_negatives(dtdps)
         # we need to remove the points outside the ROI again for computing false negatives
-        dtdps_fn, gtdps_fn = self.remove_outside_data(
-                dtdps, gtdps, inplace=False, extra_buffer_for_gt=0)
-        expected_num_det = self.number_of_expected_detection(gtdps_fn)
-        num_fn, fn_rate = self.compute_false_negatives(dtdps_fn, gtdps_fn, num_exp_det=expected_num_det)
+        # dtdps_fn, gtdps_fn = self.remove_outside_data(
+                #dtdps, gtdps, inplace=False, extra_buffer_for_gt=0)
+        # expected_num_det = self.number_of_expected_detection(gtdps_fn)
+        # num_fn, fn_rate = self.compute_false_negatives(dtdps_fn, gtdps_fn, num_exp_det=expected_num_det)
         print('num_tp', num_tp, 'num_fp', num_fp, 'fp_rate', fp_rate, 'num_fn', num_fn, 'fn_rate', fn_rate)
-        return num_tp, num_fp, num_fn, fp_rate, fn_rate, expected_num_det
+        return num_tp, num_fp, num_fn, fp_rate, fn_rate
 
 
     def match_trajectories(self, dtdps, gtdps):
@@ -405,7 +424,7 @@ class Evaluator:
             self.compute_matching_by_time(t1, t2, inplace=True)
             self.compute_and_store_position_error(t1, t2)
             self.compute_false_positives(t1)
-            fn, fn_rate = self.compute_false_negatives(t1, t2)
+            fn, fn_rate = self.compute_false_negatives_by_frequency(t1, t2)
             fna += fn
         # print('fna', fna)
         return match_result, tpa, fpa, fna
