@@ -237,15 +237,15 @@ class Evaluator:
         '''
         compute id switch time for the true positive detections
         '''
-        # dtdp_list = dtdps.dp_list
-        # gtdp_list = gtdps.dp_list
+        dtdp_list = dtdps.dp_list
+        gtdp_list = gtdps.dp_list
         # print(gtdps)
-        # dt_ids = [dtdp.id for dtdp in dtdp_list if dtdp.tp == True]
-        # dt_ids_set = set(dt_ids)
-        # gt_ids = [gtdp.id for gtdp in gtdp_list]
-        # gt_ids_set = set(gt_ids)
-        num_dt_ids = dtdps.num_traj
-        num_gt_ids = gtdps.num_traj
+        dt_ids = [dtdp.id for dtdp in dtdp_list if dtdp.tp == True]
+        dt_ids_set = set(dt_ids)
+        gt_ids = [gtdp.id for gtdp in gtdp_list]
+        gt_ids_set = set(gt_ids)
+        num_dt_ids = len(dt_ids_set)
+        num_gt_ids = len(gt_ids_set)
         print(
             f"number of det ids: {num_dt_ids}, number of gt ids: {num_gt_ids}")
         id_switch = num_dt_ids - num_gt_ids
