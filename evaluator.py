@@ -26,8 +26,6 @@ class Evaluator:
         self.center_lon = center_latlng[1]
         self.roi_radius = roi_radius
         self.latency = latency
-        # self._compute_det_frequency()
-        # self._remove_outside_data()
 
     def evaluate(self, visualize=True):
         '''
@@ -37,16 +35,6 @@ class Evaluator:
             latency: estimated latency for the perception system
             exp_det_freq: expected detection frequency
         '''
-        # self._compute_matching()
-        # if visualize:
-        #     self.visualize_data()
-        # self._compute_position_error()
-        # self._compute_false_positives()
-        # self._compute_false_negatives()
-        # self._compute_lat_lon_error()
-        # self._compute_id_switch_and_consistency()
-        # self._compute_mota()
-        # self._summarize_results()
         return self.false_positive_rate, self.false_negative_rate, self.actual_det_freq, \
             self.lat_error, self.lon_error, self.id_switch, self.id_consistency, self.mota
 
@@ -54,28 +42,6 @@ class Evaluator:
         self.latency = compute_latency(
             dtdps, gtdps, dis_th=self.dis_th, time_th=self.time_th)
         return self.latency
-
-    def visualize_data(self):
-        plotter = Plotter(center_lat=self.center_lat,
-                          center_lon=self.center_lon)
-        plotter.plot_traj_data(
-            self.gtdp_list, plot_name='GPS RTK', color='blue')
-        plotter.plot_traj_data(self.dtdp_list, plot_name='Detection')
-        plotter.fig.show()
-
-    def visualize_data_temp(self, dtdp_list, gtdp_lists):
-        dtdp_list, gtdp_lists[0] = self._remove_outside_data(
-            False, dtdp_list, gtdp_lists[0], radius=50)
-        dtdp_list, gtdp_lists[1] = self._remove_outside_data(
-            False, dtdp_list, gtdp_lists[1], radius=50)
-        plotter = Plotter(center_lat=self.center_lat,
-                          center_lon=self.center_lon)
-        plotter.plot_traj_data(
-            gtdp_lists[0], plot_name='GPS RTK 1', color='blue')
-        plotter.plot_traj_data(
-            gtdp_lists[1], plot_name='GPS RTK 2', color='red')
-        plotter.plot_traj_data(dtdp_list, plot_name='Detection')
-        plotter.fig.show()
 
     def compute_matching_by_time(self, dtdps, gt_traj, inplace=False):
         dtdp_list = dtdps.dp_list
@@ -262,27 +228,6 @@ class Evaluator:
         '''
         return compute_motp(dtdp_list)
 
-    # def _compute_mota(self):
-    #     '''
-    #     compute Multiple Object Tracking Accuracy (MOTA) score
-    #     MOTA = 1 - (FN + FP + IDS) / num_expected_detection
-    #     '''
-    #     assert self.false_positive_rate is not None and self.false_negative_rate is not None and self.id_switch is not None, 'need to compute fp, fn, ids first'
-    #     num_exp_det = len(self.gtdp_list) * self.det_freq / float(self.gt_freq)
-    #     self.mota = 1 - (self.num_false_positive + self.num_false_negative + self.id_switch) / num_exp_det
-
-    def _summarize_results(self):
-        print('-------------- Evaluation Results ---------------------')
-        print(f'False Positive rate\t\t: {self.false_positive_rate:.4f}')
-        print(f'False Negative rate\t\t: {self.false_negative_rate:.4f}')
-        print(f'Actual detection frequency\t: {self.actual_det_freq:.4f}')
-        print(f'Lateral error\t\t\t: {self.lat_error:.4f}')
-        print(f'Longitudinal error\t\t: {self.lon_error:.4f}')
-        print(f'System Latency\t\t\t: {self.latency:.4f}')
-        print(f'ID switch\t\t\t: {self.id_switch:.4f}')
-        print(f'ID consistency\t\t\t: {self.id_consistency:.4f}')
-        print(f'MOTA\t\t\t\t: {self.mota:.4f}')
-
     def _compute_minimum_distance_matching(self, dtdp_list, gtdp_list):
         '''
         compute matching based on minimum distance
@@ -308,9 +253,6 @@ class Evaluator:
         if inplace:
             output_dtdp_list = dtdps.dp_list
             output_gtdp_list = gtdps.dp_list
-        # elif dtdp_list is None and gtdp_list is None:
-        #     output_dtdp_list = dtdp_list.copy()
-        #     output_gtdp_list = gtdp_list.copy()
         else:
             output_dtdp_list = dtdps.dp_list.copy()
             output_gtdp_list = gtdps.dp_list.copy()
@@ -383,11 +325,6 @@ class Evaluator:
         self.compute_and_store_position_error(dtdps, gtdps)
         num_fp, fp_rate, num_tp = self.compute_false_positives(dtdps)
         num_fn, fn_rate = self.compute_false_negatives(dtdps)
-        # we need to remove the points outside the ROI again for computing false negatives
-        # dtdps_fn, gtdps_fn = self.remove_outside_data(
-                #dtdps, gtdps, inplace=False, extra_buffer_for_gt=0)
-        # expected_num_det = self.number_of_expected_detection(gtdps_fn)
-        # num_fn, fn_rate = self.compute_false_negatives(dtdps_fn, gtdps_fn, num_exp_det=expected_num_det)
         print('num_tp', num_tp, 'num_fp', num_fp, 'fp_rate', fp_rate, 'num_fn', num_fn, 'fn_rate', fn_rate)
         return num_tp, num_fp, num_fn, fp_rate, fn_rate
 
@@ -404,16 +341,9 @@ class Evaluator:
                 # print('num_tp', num_tp, 'num_fp', num_fp, 'fp_rate', fp_rate)
                 match_score[k1][k2] += num_tp
 
-        # print('match_score', match_score)
         match_result, tpa = hungarian_matching(match_score)
-       
-        # print('match_result', match_result, 'tpa', tpa)
-        # total score is the number of matched points, which is tpa
-        # calculate fpa
         num_total_points = len(dtdps.dp_list)
         fpa = num_total_points - tpa
-        # print('fpa', fpa)
-        # compute fna
         fna = 0
         for k in match_result:
             dtdps.trajectories[k].match = gtdps.trajectories[match_result[k]]
@@ -434,50 +364,3 @@ class Evaluator:
     
     def compute_hota(self, tpa, fpa, fna, tp, fp, fn):
         return compute_hota(tpa, fpa, fna, tp, fp, fn)
-
-
-    # # def compute_latency_method1(self):
-    # #     '''
-    # #     A roundtrip with overlapped trajectories
-    # #     First match the detection with the ground-truth points by minimum distance
-    # #     Then directly compute the mean time inverval between detection and matched ground-truth as mean latency
-    # #     '''
-    # #     # dtdp_list_for_latency, gtdp_list_for_latency = self._remove_outside_data(inplace=False, radius=20)
-    # #     min_dis_match_idx = self._compute_minimum_distance_matching(dtdp_list_for_latency, gtdp_list_for_latency)
-    # #     # plotter = Plotter(center_lat=self.center_lat, center_lon=self.center_lon)
-    # #     # plotter.plot_matching(dtdp_list_for_latency, gtdp_list_for_latency, min_dis_match_idx, color='green')
-    # #     # plotter.plot_traj_data(dtdp_list_for_latency, plot_name='Msight detection', color='red')
-    # #     # plotter.plot_traj_data(gtdp_list_for_latency, plot_name='GPS RTK', color='blue')
-    # #     # plotter.fig.show()
-    # #     time_diff = np.array([dtdp.time - gtdp_list_for_latency[min_dis_match_idx[i]].time for (i, dtdp) in
-    # #                           enumerate(dtdp_list_for_latency) if min_dis_match_idx[i] != -1])
-    # #     latency = np.mean(time_diff) / 1e9
-    # #     return latency
-
-    # def compute_latency_method2(self):
-    #     '''
-    #     A roundtrip with overlapped trajectories
-
-    #     trip 1: from left to right
-    #     trip 2: from right to left
-
-    #     at a timestamp t, the gt vehicle location is x(t), the detected vehicle location is y(t),
-    #     the detection error is e(t), the system latency is tau(t), vehicle velocity v(t)
-
-    #     Assume in trip 1, v(t) = v, in trip 2, v(t) = -v
-
-    #     In trip 1:
-    #     y(t) = x(t - tau(t)) + e(t)
-    #          = x(t) - delta_x(tau(t)) + e(t)
-    #          = x(t) - v * tau(t) + e(t)
-
-    #     y(t) - x(t) = -v * tau(t) + e(t)
-    #     \sum_t [y(t) - x(t)] = -v \sum_t[tau(t)] + \sum_t[e(t)]
-    #     In trip 2:
-    #     y(t) = x(t) + v * tau(t) + e(t)
-
-    #     y(t) - x(t) = v * tau(t) + e(t)
-    #     \sum_t [y(t) - x(t)] = v \sum_t[tau(t)] + \sum_t[e(t)]
-
-    #     '''
-    #     return
