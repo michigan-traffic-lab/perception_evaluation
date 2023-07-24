@@ -70,15 +70,21 @@ class Evaluator:
         time_diff = np.abs(det_time[:, None] - gt_time[None, :])
         gt_times = list(gtdps.dataframes.keys())
         det_times = list(dtdps.dataframes.keys())
-        
+        # print([x/1000000000 for x in gt_times])
         matched_gt_idx = np.argmin(time_diff, axis=1)
         for dp_idx, det_t in enumerate(dtdps.dataframes):
             det_frame = dtdps.dataframes[det_t]
             det_frame.match = gtdps.dataframes[gt_times[matched_gt_idx[dp_idx]]]
+            # print(abs(det_time[dp_idx] - gt_times[matched_gt_idx[dp_idx]]) / 1000000000)
+            if abs(det_time[dp_idx] - gt_times[matched_gt_idx[dp_idx]]) / 1000000000 > 0.1:
+                det_frame.match = None
         matched_dt_idx = np.argmin(time_diff, axis=0)
         for dp_idx, gt_t in enumerate(gtdps.dataframes):
             gt_frame = gtdps.dataframes[gt_t]
             gt_frame.match = dtdps.dataframes[det_times[matched_dt_idx[dp_idx]]]
+            # print(abs(gt_t - det_time[matched_dt_idx[dp_idx]]) / 1000000000)
+            if abs(gt_t - det_time[matched_dt_idx[dp_idx]]) / 1000000000 > 0.1:
+                det_frame.match = None
 
 
     # def _compute_matching_multiple_vehicles(self):
