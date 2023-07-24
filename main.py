@@ -246,7 +246,7 @@ def ped_evaluation(data_dir, args, cfg):
     local_date_str = cfg['DATE']
     for trial_id in cfg['PED_TRIAL_IDS']:
         ped_det_file_path = get_detection_file_path(
-            args.system, data_dir, trial_id)
+            args.system, data_dir, trial_id, object="ped")
         ped_rtk_file_path = f'{data_dir}/gts/ped_{trial_id}.txt'
         ped_rtk_data = PedRTKData(
             ped_rtk_file_path, plot_name='PED trajectory by RTK', date_str=local_date_str)
