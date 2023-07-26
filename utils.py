@@ -114,18 +114,24 @@ def prepare_data(dt, gt, cate='veh', source='Bluecity'):
     return TrajectorySet(dtdp_list), TrajectorySet(gtdp_list)
 
 
-def get_detection_file_path(system, data_dir, trial_id, vehicle_id=None):
+def get_detection_file_path(system, data_dir, trial_id, vehicle_id=None, object=None):
     if system == 'Bluecity':
+        if object == "ped":
+            return f'{data_dir}/dets/detection_ped_{trial_id}.json'
         if vehicle_id == None:
             return f'{data_dir}/dets/detection_{trial_id}.json'
         else:
             return f'{data_dir}/dets/detection_{trial_id}_{vehicle_id}.json'
     elif system == 'Derq':
+        if object == "ped":
+            return f'{data_dir}/dets/detection_ped_{trial_id}.json'
         if vehicle_id == None:
             return f'{data_dir}/dets/edge_DSRC_BSM_send_{trial_id}.csv'
         else:
             return f'{data_dir}/dets/edge_DSRC_BSM_send_{trial_id}_{vehicle_id}.csv'
     elif system == 'MSight':
+        if object == "ped":
+            return f'{data_dir}/dets/detection_ped_{trial_id}.json'
         if vehicle_id == None:
             return f'{data_dir}/dets/Test{trial_id}_MsightObjectList.csv'
         else:
@@ -194,7 +200,7 @@ def prepare_gt_data(vehicle1_data, vehicle2_data, cfg):
                        speed=0)
         dp_list.append(point1)
         dp_list.append(point2)
-    
+
     ts = TrajectorySet(dp_list)
     for t in ts.trajectories.values():
         compute_speed_and_heading(t.dp_list, interval=10)
