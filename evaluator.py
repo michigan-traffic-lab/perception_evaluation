@@ -63,7 +63,7 @@ class Evaluator:
         for dp_idx, gtdp in enumerate(output_gtdp_list):
             gtdp.point_wise_match = output_dtdp_list[matched_dt_idx[dp_idx]]
         return TrajectorySet(output_dtdp_list), Trajectory(output_gtdp_list)
-    
+
     def _match_frames_by_time(self, dtdps, gtdps):
         gt_time = np.array([x for x in gtdps.dataframes.keys()])
         det_time = np.array([x for x in dtdps.dataframes.keys()]) - self.latency * 1000000000
@@ -101,10 +101,10 @@ class Evaluator:
     def compute_and_store_position_error(self, dtdps, gtdps):
         '''
         Sign of the errors:
-            Lateral error: 
+            Lateral error:
                 on the left side of the vehicle heading (-)
                 on the right side of the vehicle heading (+)
-            Longitudinal error: 
+            Longitudinal error:
                 on the back side of the vehicle heading (-)
                 on the front side of the vehicle heading (+)
         '''
@@ -143,7 +143,7 @@ class Evaluator:
         num_true_positive = sum([1 for dtdp in dtdp_list if dtdp.tp is True])
         false_positive_rate = num_false_positive / len(dtdp_list)
         return num_false_positive, false_positive_rate, num_true_positive
-    
+
     def compute_false_negatives(self, dtdps):
         num_fn = 0
         for t, det_frame in dtdps.dataframes.items():
@@ -152,7 +152,7 @@ class Evaluator:
                 num_det = len([x for x in det_frame.dp_list if x.tp is True])
                 num_fn += len(gt_frame.dp_list) - num_det
         return num_fn, num_fn / len(dtdps.dp_list)
-                    
+
 
     def number_of_expected_detection(self, gtdps):
         num_exp_det = 0
@@ -269,6 +269,7 @@ class Evaluator:
             if d >= radius:
                 remove_dp_list.append(dp)
         for dp in remove_dp_list:
+            # print(dp)
             output_dtdp_list.remove(dp)
 
         remove_dp_list = []
@@ -294,6 +295,26 @@ class Evaluator:
                 dtdps_out.sample_rate = dtdps.sample_rate
                 gtdps_out.sample_rate = gtdps.sample_rate
                 return dtdps_out, gtdps_out
+
+    def adjust_ids(self, dtdps, gtdps, cur_id=0):
+        cur_time = 0
+        prev_time = 0
+        for i in range(0,len(gtdps.dp_list)):
+            x = gtdps.dp_list[i]
+            cur_time = float(x.time)
+            print((cur_time-prev_time)/10e9)
+            if i>0 and (cur_time-prev_time > 5*10e9):
+                cur_id += 1
+                gtdps.dp_list[i] = DataPoint(id=cur_id,
+                          time=x.time,
+                          lat=x.lat,
+                          lon=x.lon,
+                          speed=x.speed
+                          )
+
+
+            prev_time = cur_time
+        return dtdps, gtdps
 
     def clear_match(self, dps):
         for dp in dps.dp_list:
@@ -326,8 +347,8 @@ class Evaluator:
                     matched_id = match_result[dtdp.id]
                     dtdp.point_wise_match = _find_data_point(gt_frame.dp_list, matched_id)
 
-        
-        
+
+
         self.compute_and_store_position_error(dtdps, gtdps)
         num_fp, fp_rate, num_tp = self.compute_false_positives(dtdps)
         num_fn, fn_rate = self.compute_false_negatives(dtdps)
@@ -337,6 +358,7 @@ class Evaluator:
 
     def match_trajectories(self, dtdps, gtdps):
         match_score = {k1: {k2: 0 for k2 in gtdps.ids} for k1 in dtdps.ids}
+        print(gtdps.ids)
         for k1, t1 in dtdps.trajectories.items():
             for k2, t2 in gtdps.trajectories.items():
                 self.clear_match(t1)
@@ -364,9 +386,9 @@ class Evaluator:
             fna += fn
         # print('fna', fna)
         return match_result, tpa, fpa, fna
-    
+
     def compute_idf1(self, tpa, fpa, fna):
         return compute_idf1(tpa, fpa, fna)
-    
+
     def compute_hota(self, tpa, fpa, fna, tp, fp, fn):
         return compute_hota(tpa, fpa, fna, tp, fp, fn)

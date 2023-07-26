@@ -107,41 +107,45 @@ def veh_evaluation(data_dir, args, cfg):
                 detection_data, vehicle_data, cate=evaluator.cate, source=evaluator.source)
             dtdps, gtdps = evaluator.remove_outside_data(
                 raw_dtdps, raw_gtdps, inplace=False)
+            # dtdps, gtdps = evaluator.adjust_ids(dtdps, gtdps)
             evaluator.clear_match(dtdps)
             evaluator.clear_match(gtdps)
 
-            gtdps.trajectories[0].sample_rate = float(
-                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+            # for _,i in enumerate(gtdps.trajectories):
+            #     gtdps.trajectories[_].sample_rate = float(
+            #         cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
 
             tp, fp, fn, fp_rate, fn_rate = evaluator.match_points(
                 dtdps, gtdps)
             print('true positive: ', tp, 'false positive: ',
                   fp, 'false negative: ', fn)
-            print('false positive rate: ', fp_rate,
-                  'false negative rate: ', fn_rate)
+            print('false positive rate: ', round(fp_rate,4),
+                  'false negative rate: ', round(fn_rate,4))
 
             ids = evaluator.compute_id_switch(dtdps, gtdps)
             print(f"number of ID switch: {ids}")
 
             mota = evaluator.compute_mota(
                 fp, fn, ids, len(dtdps.dp_list))
-            print(f"MOTA: {mota}")
+            print(f"MOTA: {round(mota,4)}")
 
             motp = evaluator.compute_motp(dtdps)
-            print(f"MOTP: {motp}")
+            print(f"MOTP: {round(motp,4)}")
 
             evaluator.clear_match(dtdps)
             evaluator.clear_match(gtdps)
 
-            gtdps.trajectories[0].sample_rate = float(
-                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+            for _,i in enumerate(gtdps.trajectories):
+                print(i)
+                gtdps.trajectories[i].sample_rate = float(
+                    cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
             match_result, tpa, fpa, fna = evaluator.match_trajectories(
                 dtdps, gtdps)
 
             idf1 = evaluator.compute_idf1(tpa, fpa, fna)
-            print(f"IDF1: {idf1}")
+            print(f"IDF1: {round(idf1,4)}")
             hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
-            print(f"HOTA: {hota}")
+            print(f"HOTA: {round(hota,4)}")
 
             # # plotter.plot_matching(fn_dtdp_list, fn_gtdp_list, color='green')
             if args.visualize:
@@ -186,36 +190,37 @@ def veh_evaluation(data_dir, args, cfg):
             evaluator.clear_match(dtdps)
             evaluator.clear_match(gtdps)
 
-            gtdps.trajectories[0].sample_rate = float(
-                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
-            gtdps.trajectories[1].sample_rate = float(
-                cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+            for _,i in enumerate(gtdps.trajectories):
+                gtdps.trajectories[_].sample_rate = float(
+                    cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
+                # gtdps.trajectories[1].sample_rate = float(
+                #     cfg['GROUND_TRUTH_FREQUENCY_VEH1'])
 
             tp, fp, fn, fp_rate, fn_rate = evaluator.match_points(
                 dtdps, gtdps)
             print('true positive: ', tp, 'false positive: ',
                   fp, 'false negative: ', fn)
-            print('false positive rate: ', fp_rate,
-                  'false negative rate: ', fn_rate)
+            print('false positive rate: ', round(fp_rate,4),
+                  'false negative rate: ', round(fn_rate,4))
 
             ids = evaluator.compute_id_switch(dtdps, gtdps)
             print(f"number of ID switch: {ids}")
 
             mota = evaluator.compute_mota(
                 fp, fn, ids, len(dtdps.dp_list))
-            print(f"MOTA: {mota}")
+            print(f"MOTA: {round(mota,4)}")
 
             motp = evaluator.compute_motp(dtdps)
-            print(f"MOTP: {motp}")
+            print(f"MOTP: {round(motp,4)}")
 
             match_result, tpa, fpa, fna = evaluator.match_trajectories(
                 dtdps, gtdps)
 
             # print(match_result, tpa)
             idf1 = evaluator.compute_idf1(tpa, fpa, fna)
-            print(f"IDF1: {idf1}")
+            print(f"IDF1: {round(idf1,4)}")
             hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
-            print(f"HOTA: {hota}")
+            print(f"HOTA: {round(hota,4)}")
 
             # # plotter.plot_matching(fn_dtdp_list, fn_gtdp_list, color='green')
             if args.visualize:
@@ -246,7 +251,7 @@ def ped_evaluation(data_dir, args, cfg):
     local_date_str = cfg['DATE']
     for trial_id in cfg['PED_TRIAL_IDS']:
         ped_det_file_path = get_detection_file_path(
-            args.system, data_dir, trial_id)
+            args.system, data_dir, trial_id, obj="ped")
         ped_rtk_file_path = f'{data_dir}/gts/ped_{trial_id}.txt'
         ped_rtk_data = PedRTKData(
             ped_rtk_file_path, plot_name='PED trajectory by RTK', date_str=local_date_str)
@@ -258,8 +263,11 @@ def ped_evaluation(data_dir, args, cfg):
         dtdps, gtdps = evaluator.remove_outside_data(
             raw_dtdps, raw_gtdps, inplace=False)
         # print('number of pedestrian:', gtdps.num_traj, 'first pedestrian name:', list(gtdps.trajectories.keys())[0])
-        gtdps.trajectories[0].sample_rate = float(
-            cfg['GROUND_TRUTH_FREQUENCY_PED'])
+        for _,i in enumerate(gtdps.trajectories):
+            gtdps.trajectories[i].sample_rate = float(
+                cfg['GROUND_TRUTH_FREQUENCY_PED'])
+        # gtdps.trajectories[0].sample_rate = float(
+        #     cfg['GROUND_TRUTH_FREQUENCY_PED'])
 
         print(
             f'++++++++++++++++++ For trip {trial_id}: Pedestrian +++++++++++++++++++')
@@ -269,26 +277,26 @@ def ped_evaluation(data_dir, args, cfg):
             dtdps, gtdps)
         print('true positive: ', tp, 'false positive: ',
                 fp, 'false negative: ', fn)
-        print('false positive rate: ', fp_rate,
-                'false negative rate: ', fn_rate)
+        print('false positive rate: ', round(fp_rate,4),
+                'false negative rate: ', round(fn_rate,4))
 
         ids = evaluator.compute_id_switch(dtdps, gtdps)
         print(f"number of ID switch: {ids}")
 
         mota = evaluator.compute_mota(
             fp, fn, ids, len(dtdps.dp_list))
-        print(f"MOTA: {mota}")
+        print(f"MOTA: {round(mota,4)}")
 
         motp = evaluator.compute_motp(dtdps)
-        print(f"MOTP: {motp}")
+        print(f"MOTP: {round(motp,4)}")
 
         match_result, tpa, fpa, fna = evaluator.match_trajectories(
             dtdps, gtdps)
 
         idf1 = evaluator.compute_idf1(tpa, fpa, fna)
-        print(f"IDF1: {idf1}")
+        print(f"IDF1: {round(idf1,4)}")
         hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
-        print(f"HOTA: {hota}")
+        print(f"HOTA: {round(hota,4)}")
 
 
         if args.visualize:
