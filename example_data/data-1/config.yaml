@@ -1,0 +1,53 @@
+GROUND_TRUTH_FREQUENCY_VEH: 50
+GROUND_TRUTH_FREQUENCY_PED: 10
+DET_FREQUENCY: 10
+TP_DISTANCE_THRESHOLD: 1.5
+CENTER_COR: [42.300947, -83.698649]
+ROI_RADIUS: 50
+trials:
+  - id: 1
+    type: 'latency'
+    det_file: 'dets/detection_1.json'
+    gt_file: 'gts/gps_data_1.json'
+    roi_radius: 20
+  - id: 2
+    type: 'latency'
+    det_file: 'dets/detection_2.json'
+    gt_file: 'gts/gps_data_2.json'
+    roi_radius: 20
+  - id: 3
+    type: 'vehicle_evaluation'
+    det_file: 'dets/detection_3.json'
+    gt_file: 'gts/gps_data_3.json'
+  - id: 4
+    type: 'vehicle_evaluation'
+    det_file: 'dets/detection_4.json'
+    gt_file: 'gts/gps_data_4.json'
+  - id: 5
+    type: 'vehicle_evaluation'
+    det_file: 'dets/detection_5.json'
+    gt_file: 'gts/gps_data_5.json'
+  - id: 13
+    type: 'vehicle_evaluation'
+    det_file: 'dets/detection_13.json'
+    gt_file: 'gts/gps_data_13_c.json'
+  - id: 14
+    type: 'vehicle_evaluation'
+    det_file: 'dets/detection_14.json'
+    gt_file: 'gts/gps_data_14_c.json'
+  - id: 15
+    type: 'vehicle_evaluation'
+    det_file: 'dets/detection_15.json'
+    gt_file: 'gts/gps_data_15_c.json'
+  - id: 11_ped
+    type: 'pedestrian_evaluation'
+    det_file: 'dets/detection_11.json'
+    gt_file: 'gts/ped_gps_data_ped_11.json'
+    roi_radius: 25
+  - id: 12_ped
+    type: 'pedestrian_evaluation'
+    det_file: 'dets/detection_12.json'
+    gt_file: 'gts/ped_gps_data_ped_12.json'
+    roi_radius: 25
+
+DATE: '2023-07-06'

@@ -1,0 +1,7670 @@
+[
+    {
+        "timestamp": 1688683229.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683229.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683229.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683229.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683230.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683231.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683232.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3010622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683233.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683234.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683235.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.301062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3010617,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3010615,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3010612,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683236.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698518,
+                "lat": 42.3010608,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.3010605,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.30106,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698518,
+                "lat": 42.3010595,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.3010583,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985183,
+                "lat": 42.3010573,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985185,
+                "lat": 42.3010567,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985187,
+                "lat": 42.3010558,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985188,
+                "lat": 42.3010548,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683237.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698519,
+                "lat": 42.301054,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985192,
+                "lat": 42.301053,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985193,
+                "lat": 42.301052,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3010508,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3010498,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.301049,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.301048,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985202,
+                "lat": 42.3010468,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3010457,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3010445,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683238.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.3010433,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010423,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010412,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010398,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010387,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010375,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010365,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010352,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010338,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010327,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683239.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010315,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010303,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010292,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010278,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010267,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010253,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010242,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.301023,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010217,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010203,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683240.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.301018,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.301017,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010157,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010145,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.3010133,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985212,
+                "lat": 42.301012,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010108,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698521,
+                "lat": 42.3010095,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.3010083,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683241.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.301007,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3010058,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3010045,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.3010032,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3010018,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.3010005,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.3009992,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.300998,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3009967,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3009952,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683242.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.300994,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3009927,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985207,
+                "lat": 42.3009915,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009903,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.300989,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009877,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009865,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009853,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.300984,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009827,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683243.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009815,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009802,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.300979,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009778,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009765,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009752,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.300974,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009728,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009717,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009703,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683244.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.300969,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009678,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985205,
+                "lat": 42.3009668,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3009655,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985202,
+                "lat": 42.3009643,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985202,
+                "lat": 42.300963,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985202,
+                "lat": 42.3009618,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3009607,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3009595,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3009582,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683245.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.300957,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009558,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3009547,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3009535,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009522,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.300951,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3009497,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009485,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009473,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009462,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683246.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.300945,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009437,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009425,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009413,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.30094,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.3009387,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.3009375,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.3009363,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.3009352,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009338,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683247.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009328,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009315,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009303,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009293,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009282,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.300927,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009258,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009247,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009235,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009223,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683248.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009212,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.30092,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009187,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009173,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985198,
+                "lat": 42.3009162,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.300915,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3009137,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.3009123,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985195,
+                "lat": 42.300911,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985193,
+                "lat": 42.3009098,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683249.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985193,
+                "lat": 42.3009087,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985192,
+                "lat": 42.3009073,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985192,
+                "lat": 42.300906,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698519,
+                "lat": 42.3009048,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698519,
+                "lat": 42.3009037,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698519,
+                "lat": 42.3009025,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985188,
+                "lat": 42.3009012,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985188,
+                "lat": 42.3009,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985188,
+                "lat": 42.3008987,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985187,
+                "lat": 42.3008975,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683250.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985187,
+                "lat": 42.3008962,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985187,
+                "lat": 42.3008948,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985187,
+                "lat": 42.3008935,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985185,
+                "lat": 42.3008922,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985185,
+                "lat": 42.300891,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985185,
+                "lat": 42.3008897,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985183,
+                "lat": 42.3008883,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.3008872,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.3008858,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3008847,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683251.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.3008833,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985178,
+                "lat": 42.300882,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3008808,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008795,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3008783,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.300877,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008757,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008743,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008732,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008718,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683252.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985173,
+                "lat": 42.3008707,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985173,
+                "lat": 42.3008693,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985173,
+                "lat": 42.300868,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985173,
+                "lat": 42.3008667,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008655,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985173,
+                "lat": 42.3008642,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008628,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008615,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008602,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.300859,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683253.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008578,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985175,
+                "lat": 42.3008565,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3008552,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.300854,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985177,
+                "lat": 42.3008528,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698518,
+                "lat": 42.3008515,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985182,
+                "lat": 42.3008503,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985183,
+                "lat": 42.3008492,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985185,
+                "lat": 42.3008478,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985185,
+                "lat": 42.3008467,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683254.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985187,
+                "lat": 42.3008457,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985188,
+                "lat": 42.3008443,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698519,
+                "lat": 42.3008432,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985192,
+                "lat": 42.3008418,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985193,
+                "lat": 42.3008407,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985197,
+                "lat": 42.3008397,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69852,
+                "lat": 42.3008383,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985203,
+                "lat": 42.3008372,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985208,
+                "lat": 42.300836,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985213,
+                "lat": 42.300835,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683255.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698522,
+                "lat": 42.3008338,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985225,
+                "lat": 42.3008328,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985233,
+                "lat": 42.3008318,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985242,
+                "lat": 42.3008308,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698525,
+                "lat": 42.3008298,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985257,
+                "lat": 42.3008292,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985267,
+                "lat": 42.3008283,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985277,
+                "lat": 42.3008277,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985287,
+                "lat": 42.3008267,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985298,
+                "lat": 42.300826,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683256.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698531,
+                "lat": 42.3008255,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698532,
+                "lat": 42.3008248,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985333,
+                "lat": 42.3008243,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698535,
+                "lat": 42.3008237,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985365,
+                "lat": 42.3008232,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698538,
+                "lat": 42.3008227,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985393,
+                "lat": 42.3008223,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698541,
+                "lat": 42.300822,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985425,
+                "lat": 42.3008215,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985443,
+                "lat": 42.300821,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683257.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698546,
+                "lat": 42.3008208,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985475,
+                "lat": 42.3008205,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698549,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985508,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985528,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985547,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985563,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698558,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985598,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985618,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683258.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985637,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985657,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985673,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985692,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985712,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985728,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985747,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985762,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698578,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985798,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683259.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985817,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985833,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985852,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698587,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985888,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985907,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985925,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985942,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698596,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698598,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683260.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6985997,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986017,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986033,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986053,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986072,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698609,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698611,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986128,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986148,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986167,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683261.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986185,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986203,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986222,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986242,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698626,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698628,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986298,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986317,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986337,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986355,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683262.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986373,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986392,
+                "lat": 42.3008203,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698641,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698643,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986448,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986467,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986485,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986502,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986522,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986538,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683263.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986558,
+                "lat": 42.30082,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986575,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986593,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986612,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698663,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698665,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986667,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986683,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986702,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986722,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683264.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986738,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986757,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986775,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986793,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986812,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986832,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698685,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986868,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986888,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986907,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683265.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986927,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986943,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986962,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986982,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987018,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987037,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987053,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987073,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698709,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683266.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987108,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987123,
+                "lat": 42.3008193,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987142,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698716,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987178,
+                "lat": 42.3008192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987192,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987208,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987225,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987242,
+                "lat": 42.3008188,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987257,
+                "lat": 42.3008188,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683267.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987273,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987287,
+                "lat": 42.3008188,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69873,
+                "lat": 42.3008188,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987315,
+                "lat": 42.3008188,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987345,
+                "lat": 42.3008188,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987362,
+                "lat": 42.300819,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987373,
+                "lat": 42.3008195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987388,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987403,
+                "lat": 42.3008197,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683268.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987418,
+                "lat": 42.3008198,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987433,
+                "lat": 42.3008202,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987443,
+                "lat": 42.3008207,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987457,
+                "lat": 42.300821,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987468,
+                "lat": 42.3008215,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987482,
+                "lat": 42.3008222,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987493,
+                "lat": 42.3008225,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987505,
+                "lat": 42.3008235,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987515,
+                "lat": 42.300824,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987525,
+                "lat": 42.3008247,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683269.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987538,
+                "lat": 42.3008255,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987548,
+                "lat": 42.3008263,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698756,
+                "lat": 42.3008273,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698757,
+                "lat": 42.300828,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698758,
+                "lat": 42.3008287,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987592,
+                "lat": 42.3008295,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987603,
+                "lat": 42.3008302,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987617,
+                "lat": 42.3008308,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987628,
+                "lat": 42.3008318,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987637,
+                "lat": 42.3008323,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683270.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987645,
+                "lat": 42.300833,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987657,
+                "lat": 42.3008338,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987667,
+                "lat": 42.3008347,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987677,
+                "lat": 42.3008357,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3008365,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987692,
+                "lat": 42.3008372,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987702,
+                "lat": 42.3008383,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987708,
+                "lat": 42.3008393,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987715,
+                "lat": 42.3008403,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987722,
+                "lat": 42.3008413,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683271.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987723,
+                "lat": 42.3008423,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987725,
+                "lat": 42.3008433,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987728,
+                "lat": 42.3008445,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987732,
+                "lat": 42.3008457,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987735,
+                "lat": 42.300847,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987735,
+                "lat": 42.3008482,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987738,
+                "lat": 42.3008495,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698774,
+                "lat": 42.3008508,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698774,
+                "lat": 42.3008522,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987742,
+                "lat": 42.3008533,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683272.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987742,
+                "lat": 42.3008545,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698774,
+                "lat": 42.3008557,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698774,
+                "lat": 42.300857,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698774,
+                "lat": 42.3008583,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987738,
+                "lat": 42.3008597,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987737,
+                "lat": 42.3008608,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987737,
+                "lat": 42.3008622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987735,
+                "lat": 42.3008633,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987735,
+                "lat": 42.3008647,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987733,
+                "lat": 42.300866,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683273.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987732,
+                "lat": 42.3008673,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698773,
+                "lat": 42.3008685,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698773,
+                "lat": 42.3008697,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698773,
+                "lat": 42.3008712,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987728,
+                "lat": 42.3008725,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987727,
+                "lat": 42.3008737,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987727,
+                "lat": 42.300875,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987725,
+                "lat": 42.3008763,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987723,
+                "lat": 42.3008777,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987722,
+                "lat": 42.3008788,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683274.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698772,
+                "lat": 42.3008802,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987718,
+                "lat": 42.3008815,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.099999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987715,
+                "lat": 42.3008827,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987713,
+                "lat": 42.300884,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987712,
+                "lat": 42.3008853,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.4,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698771,
+                "lat": 42.3008867,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698771,
+                "lat": 42.3008878,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.599999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987708,
+                "lat": 42.3008892,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987708,
+                "lat": 42.3008905,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987708,
+                "lat": 42.3008918,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683275.9,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987707,
+                "lat": 42.3008933,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987705,
+                "lat": 42.3008945,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987705,
+                "lat": 42.3008958,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987703,
+                "lat": 42.3008972,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987705,
+                "lat": 42.3008983,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987703,
+                "lat": 42.3008998,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987705,
+                "lat": 42.300901,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987705,
+                "lat": 42.3009023,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987703,
+                "lat": 42.3009037,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987703,
+                "lat": 42.300905,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683276.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987702,
+                "lat": 42.3009062,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987702,
+                "lat": 42.3009075,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69877,
+                "lat": 42.3009087,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987698,
+                "lat": 42.30091,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987698,
+                "lat": 42.3009115,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987697,
+                "lat": 42.3009127,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987695,
+                "lat": 42.300914,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987695,
+                "lat": 42.3009152,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987693,
+                "lat": 42.3009165,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987692,
+                "lat": 42.3009178,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683277.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698769,
+                "lat": 42.3009192,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698769,
+                "lat": 42.3009203,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009215,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009228,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009242,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009255,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009267,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009278,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009292,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009305,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683278.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009318,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009332,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987688,
+                "lat": 42.3009343,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009355,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009368,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009382,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009393,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009405,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987687,
+                "lat": 42.3009417,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987685,
+                "lat": 42.300943,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683279.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987683,
+                "lat": 42.3009443,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987683,
+                "lat": 42.3009455,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698768,
+                "lat": 42.3009468,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987678,
+                "lat": 42.3009478,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987677,
+                "lat": 42.3009492,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987677,
+                "lat": 42.3009505,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987675,
+                "lat": 42.300952,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987677,
+                "lat": 42.3009532,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987677,
+                "lat": 42.3009543,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987675,
+                "lat": 42.3009557,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683280.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987675,
+                "lat": 42.3009572,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987675,
+                "lat": 42.3009585,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987673,
+                "lat": 42.3009597,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698767,
+                "lat": 42.3009608,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698767,
+                "lat": 42.3009622,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987668,
+                "lat": 42.3009635,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987667,
+                "lat": 42.300965,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987667,
+                "lat": 42.3009662,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987668,
+                "lat": 42.3009675,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987668,
+                "lat": 42.3009688,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683281.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987668,
+                "lat": 42.3009703,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987668,
+                "lat": 42.3009718,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987668,
+                "lat": 42.300973,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987667,
+                "lat": 42.3009743,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987667,
+                "lat": 42.3009757,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.300977,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009783,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009797,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.300981,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009823,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683282.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009835,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009852,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987663,
+                "lat": 42.3009863,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987663,
+                "lat": 42.3009875,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009888,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009902,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009917,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009928,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.300994,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009955,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683283.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009968,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987665,
+                "lat": 42.3009982,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987663,
+                "lat": 42.3009993,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987662,
+                "lat": 42.3010005,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987662,
+                "lat": 42.3010018,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010032,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010045,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010058,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.301007,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010083,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683284.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010097,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010108,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010122,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010133,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010145,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987657,
+                "lat": 42.301016,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987657,
+                "lat": 42.3010172,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987657,
+                "lat": 42.3010183,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010195,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010208,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683285.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010222,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010235,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010247,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010257,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010268,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010282,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010292,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010307,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698766,
+                "lat": 42.3010317,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010327,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683286.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.301034,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010353,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987658,
+                "lat": 42.3010365,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987657,
+                "lat": 42.3010375,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987657,
+                "lat": 42.3010385,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987655,
+                "lat": 42.3010397,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987653,
+                "lat": 42.3010408,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987652,
+                "lat": 42.3010418,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987648,
+                "lat": 42.301043,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987645,
+                "lat": 42.301044,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683287.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987642,
+                "lat": 42.301045,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987637,
+                "lat": 42.3010462,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987633,
+                "lat": 42.3010472,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987628,
+                "lat": 42.3010482,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987623,
+                "lat": 42.301049,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987615,
+                "lat": 42.3010498,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987607,
+                "lat": 42.3010507,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.69876,
+                "lat": 42.3010515,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987592,
+                "lat": 42.3010522,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698758,
+                "lat": 42.301053,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683288.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698757,
+                "lat": 42.3010535,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698756,
+                "lat": 42.3010542,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987548,
+                "lat": 42.3010547,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987533,
+                "lat": 42.3010552,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987522,
+                "lat": 42.3010557,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698751,
+                "lat": 42.301056,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987498,
+                "lat": 42.3010565,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987485,
+                "lat": 42.3010567,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987472,
+                "lat": 42.3010568,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987457,
+                "lat": 42.301057,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683289.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987442,
+                "lat": 42.3010572,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987427,
+                "lat": 42.3010572,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987412,
+                "lat": 42.3010573,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987397,
+                "lat": 42.3010575,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698738,
+                "lat": 42.3010575,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987365,
+                "lat": 42.3010578,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987347,
+                "lat": 42.3010578,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987332,
+                "lat": 42.301058,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987315,
+                "lat": 42.301058,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987297,
+                "lat": 42.301058,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683290.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987278,
+                "lat": 42.3010582,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987262,
+                "lat": 42.3010582,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987245,
+                "lat": 42.3010582,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.199999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987228,
+                "lat": 42.3010583,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.3,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987212,
+                "lat": 42.3010583,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987193,
+                "lat": 42.3010585,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987178,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987162,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.699999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987147,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.8,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698713,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683291.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987113,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987097,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698708,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987065,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698705,
+                "lat": 42.3010587,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987033,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987017,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.6,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6987,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.7,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986985,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.799999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986968,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683292.899999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986952,
+                "lat": 42.3010588,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683293.0,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986933,
+                "lat": 42.301059,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683293.1,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986917,
+                "lat": 42.301059,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683293.2,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986902,
+                "lat": 42.301059,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683293.299999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986885,
+                "lat": 42.301059,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683293.399999,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.6986867,
+                "lat": 42.3010592,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    },
+    {
+        "timestamp": 1688683293.5,
+        "info": "ground_truth",
+        "objs": [
+            {
+                "lon": -83.698685,
+                "lat": 42.3010592,
+                "id": 0,
+                "classType": "10"
+            }
+        ]
+    }
+]

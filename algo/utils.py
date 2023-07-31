@@ -31,7 +31,7 @@ class DataPoint:
         tp: whether it is a true positive detection
         timestr: time string converted from timestamp
         '''
-        self.id = id
+        self.id = str(id)
         self.time = time
         self.lat = lat
         self.lon = lon
@@ -47,7 +47,7 @@ class DataPoint:
         self.timestr = datetime.fromtimestamp(time / 1e9)
 
     def __str__(self):
-        return f'DataPoint(UTC time: {self.timestr}, ID: {self.id}, speed: {self.speed}, heading: {self.heading}, lat_error: {self.lat_error}, lon_error: {self.lon_error})'
+        return f'DataPoint(UTC time: {self.timestr}, ID: {self.id}, timestamp: {self.time / 1e9}, speed: {self.speed}, heading: {self.heading}, lat_error: {self.lat_error}, lon_error: {self.lon_error})'
 
     def __repr__(self) -> str:
         return self.__str__()
@@ -108,12 +108,13 @@ class TrajectorySet:
     @property
     def num_traj(self):
         return len(self.trajectories)
-
-    def query_by_frame():
-        pass
-
-    def query_by_id():
-        pass
+    
+    @property
+    def freq(self):
+        ts = list(self.dataframes.keys())
+        largest_time = ts[-1]/1e9
+        smallest_time = ts[0]/1e9
+        return len(ts) / (largest_time - smallest_time)
 
 
 def compute_minimum_distance_matching(dtdp_list, gtdp_list, dis_th=1.5, time_th=3):
