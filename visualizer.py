@@ -28,17 +28,21 @@ class Plotter:
             dp_sublist = [dp for dp in dp_list if dp.id == id]
             self.fig.add_trace(go.Scattermapbox(
                 lat=[dp.lat for dp in dp_sublist], lon=[dp.lon for dp in dp_sublist], mode='markers', text=[str(dp) for dp in dp_sublist],
-                marker={'size': 5, 'color': color if color is not None else cmaps[int(id) % len(cmaps)]}, name=plot_name+f'ID: {id}'))
+                marker={'size': 5, 'color': color if color is not None else cmaps[hash(str(id)) % len(cmaps)]}, name=plot_name+f'ID: {id}'))
 
-    def plot_matching(self, dtdp_list, gtdp_list, match_indices=None, color='yellow'):
+    def plot_matching(self, dtdp_list, color='yellow'):
         for dtdp_idx, dtdp in enumerate(dtdp_list):
-            if match_indices is None and dtdp.match != -1:
-                matched_gtdp = gtdp_list[dtdp.match]
-            elif match_indices is None and dtdp.match == -1:
-                print('A valid match idx is required')
-                raise ValueError
-            else:
-                matched_gtdp = gtdp_list[match_indices[dtdp_idx]]
+            # if match_indices is None and dtdp.match != -1:
+            #     matched_gtdp = gtdp_list[dtdp.match]
+            # elif match_indices is None and dtdp.match == -1:
+            #     print('A valid match idx is required')
+            #     raise ValueError
+            # else:
+            #     matched_gtdp = gtdp_list[match_indices[dtdp_idx]]
+
+            if dtdp.point_wise_match is None:
+                continue
+            matched_gtdp = dtdp.point_wise_match
             self.fig.add_trace(go.Scattermapbox(lat=[matched_gtdp.lat, dtdp.lat], lon=[matched_gtdp.lon, dtdp.lon], mode='lines',
             marker={'size': 10, 'color': color}, name='matching'))
 

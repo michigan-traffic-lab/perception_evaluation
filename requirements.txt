@@ -5,3 +5,5 @@ plotly
 matplotlib
 pandas
 scipy
+tqdm
+tabulate

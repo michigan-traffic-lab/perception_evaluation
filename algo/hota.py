@@ -5,6 +5,7 @@ def compute_idf1(tpa, fpa, fna):
 
 
 def compute_hota(tpa, fpa, fna, tp, fp, fn):
+    # print('tpa', tpa, 'fpa', fpa, 'fna', fna, 'tp', tp, 'fp', fp, 'fn', fn)
     if tpa == 0:
         return 0
     deta = tp / (tp + fp + fn)
