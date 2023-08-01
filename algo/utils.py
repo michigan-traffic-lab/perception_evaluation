@@ -88,7 +88,6 @@ class TrajectorySet:
             self.dataframes = {}  # time: dataframe
         # print('++++++++++++++++++++++++++++++++++++++')
         for dp in self.dp_list:
-            # print(dp.time, 'time in trajectoryset ', dp.id)
             if dataframes is None:
                 t = int(dp.time)  # note that we will use int to represent time
                 if not t in self.dataframes:

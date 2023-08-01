@@ -5,6 +5,7 @@ import json
 from tqdm import tqdm
 from tabulate import tabulate
 
+
 def read_data(data_path, kind='all'):
     with open(data_path, 'r') as f:
         data = json.load(f)
@@ -24,8 +25,9 @@ def read_data(data_path, kind='all'):
             df.add_dp(dp)
             dp_list.append(dp)
         dataframes[t] = df
-    
+
     return TrajectorySet(dp_list)
+
 
 def dydx_distance(lat1, lon1, lat2, lon2):
     # dx, dy = (lat2 - lat1) * 111000., (lon2 - lon1) * 111000. * np.cos(lat2/180*np.pi)
@@ -213,15 +215,15 @@ def prepare_gt_data(vehicle1_data, vehicle2_data, cfg):
         lat2_interpolated, lon2_interpolated = interpolate(
             t1, t2, t2_next, lat2, lon2, lat2_next, lon2_next)
         point1 = DataPoint(id=0,
-                       time=t1,
-                       lat=lat1,
-                       lon=lon1,
-                       speed=0)
+                           time=t1,
+                           lat=lat1,
+                           lon=lon1,
+                           speed=0)
         point2 = DataPoint(id=1,
-                       time=t1,
-                       lat=lat2_interpolated,
-                       lon=lon2_interpolated,
-                       speed=0)
+                           time=t1,
+                           lat=lat2_interpolated,
+                           lon=lon2_interpolated,
+                           speed=0)
         dp_list.append(point1)
         dp_list.append(point2)
 
@@ -229,6 +231,7 @@ def prepare_gt_data(vehicle1_data, vehicle2_data, cfg):
     for t in ts.trajectories.values():
         compute_speed_and_heading(t.dp_list, interval=10)
     return ts
+
 
 class Result:
     def __init__(self) -> None:
@@ -255,13 +258,13 @@ class Result:
                 s += t[att]
                 n += 1
         return s / n if n > 0 else None
-    
+
     def has_type(self, kind):
         for t in self.trials:
             if t['type'] == kind:
                 return True
         return False
-    
+
     def to_tables(self):
         s = ''
         if self.has_type('latency'):
@@ -276,25 +279,31 @@ class Result:
             s += '\n'
         if self.has_type('vehicle_evaluation'):
             s += f'+++++++++++++++++++Vehicle Evaluation Results+++++++++++++++++++\n'
-            headers = ['Trial ID', 'FP Rate', 'FN Rate', 'MOTA', 'MOTP', 'IDF1', 'HOTA', 'IDS', 'freq', 'interval variance']
+            headers = ['Trial ID', 'FP Rate', 'FN Rate',
+                       'FNR(freq)', 'MOTA', 'MOTP', 'IDF1', 'HOTA', 'IDS', 'freq', 'int var']
             data = []
             for t in self.trials:
                 if t['type'] == 'vehicle_evaluation':
-                    data.append([t['id'], t['fp_rate'], t['fn_rate'], t['mota'], t['motp'], t['idf1'], t['hota'], t['ids'], t['frequency'], t['interval_variance']])
-            data.append(['Mean', self.calc_mean("fp_rate", "vehicle_evaluation"), self.calc_mean("fn_rate", "vehicle_evaluation"), self.calc_mean("mota", "vehicle_evaluation"), self.calc_mean("motp", "vehicle_evaluation"), self.calc_mean("idf1", "vehicle_evaluation"), self.calc_mean("hota", "vehicle_evaluation"), self.calc_mean("ids", "vehicle_evaluation")])
+                    data.append([t['id'], t['fp_rate'], t['fn_rate'], t['fnr_freq'], t['mota'], t['motp'],
+                                t['idf1'], t['hota'], t['ids'], t['frequency'], t['interval_variance']])
+            data.append(['Mean', self.calc_mean("fp_rate", "vehicle_evaluation"), self.calc_mean("fn_rate", "vehicle_evaluation"), self.calc_mean("fnr_freq", "pedestrian_evaluation"), self.calc_mean("mota", "vehicle_evaluation"), self.calc_mean(
+                "motp", "vehicle_evaluation"), self.calc_mean("idf1", "vehicle_evaluation"), self.calc_mean("hota", "vehicle_evaluation"), self.calc_mean("ids", "vehicle_evaluation")])
             s += tabulate(data, headers=headers, floatfmt=".3f")
             s += '\n'
         if self.has_type('pedestrian_evaluation'):
             s += f'+++++++++++++++++++Pedestrian Evaluation Results+++++++++++++++++++\n'
-            headers = ['Trial ID', 'FP Rate', 'FN Rate', 'MOTA', 'MOTP', 'IDF1', 'HOTA', 'IDS', 'freq', 'interval variance']
+            headers = ['Trial ID', 'FP Rate', 'FN Rate',
+                       'FNR(freq)', 'MOTA', 'MOTP', 'IDF1', 'HOTA', 'IDS', 'freq', 'int var']
             data = []
             for t in self.trials:
                 if t['type'] == 'pedestrian_evaluation':
-                    data.append([t['id'], t['fp_rate'], t['fn_rate'], t['mota'], t['motp'], t['idf1'], t['hota'], t['ids'], t['frequency'], t['interval_variance']])
-            data.append(['Mean', self.calc_mean("fp_rate", "pedestrian_evaluation"), self.calc_mean("fn_rate", "pedestrian_evaluation"), self.calc_mean("mota", "pedestrian_evaluation"), self.calc_mean("motp", "pedestrian_evaluation"), self.calc_mean("idf1", "pedestrian_evaluation"), self.calc_mean("hota", "pedestrian_evaluation"), self.calc_mean("ids", "pedestrian_evaluation")])
+                    data.append([t['id'], t['fp_rate'], t['fn_rate'], t['fnr_freq'], t['mota'], t['motp'],
+                                t['idf1'], t['hota'], t['ids'], t['frequency'], t['interval_variance']])
+            data.append(['Mean', self.calc_mean("fp_rate", "pedestrian_evaluation"), self.calc_mean("fn_rate", "pedestrian_evaluation"), self.calc_mean("fnr_freq", "pedestrian_evaluation"), self.calc_mean("mota", "pedestrian_evaluation"), self.calc_mean(
+                "motp", "pedestrian_evaluation"), self.calc_mean("idf1", "pedestrian_evaluation"), self.calc_mean("hota", "pedestrian_evaluation"), self.calc_mean("ids", "pedestrian_evaluation")])
             s += tabulate(data, headers=headers, floatfmt=".3f")
             s += '\n'
         return s
-    
+
     def __str__(self) -> str:
         return self.to_tables()

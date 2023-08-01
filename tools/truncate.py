@@ -3,9 +3,10 @@ from pathlib import Path
 import argparse
 
 argparser = argparse.ArgumentParser(description='Truncate a JSON file into pieces according to each trials start and end time.')
-argparser.add_argument('-c', '--config', type=str, help='the configuration of start and end timestamp.')
-argparser.add_argument('-i', '--input', type=str, help='the input JSON file.')
-argparser.add_argument('-o', '--output', type=str, help='the output folder.')
+argparser.add_argument('-c', '--config', type=str, help='the configuration of start and end timestamp.', required=True)
+argparser.add_argument('-i', '--input', type=str, help='the input JSON file.', required=True)
+argparser.add_argument('-o', '--output', type=str, help='the output folder.', default='./output')
+argparser.add_argument('--output-prefix', type=str, help='the prefix of the output file.', default="ped_gps_data_")
 args = argparser.parse_args()
 
 timestamps = {}
@@ -33,5 +34,5 @@ for d in data:
 
 Path(args.output).mkdir(parents=True, exist_ok=True)
 for k, v in truncated_data.items():
-    with open(args.output + '/' + str(k) + '.json', 'w') as f:
+    with open(args.output + '/' + args.output_prefix + str(k) + '.json', 'w') as f:
         json.dump(v, f, indent=4)

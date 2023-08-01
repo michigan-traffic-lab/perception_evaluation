@@ -70,7 +70,6 @@ class Evaluator:
         time_diff = np.abs(det_time[:, None] - gt_time[None, :])
         gt_times = list(gtdps.dataframes.keys())
         det_times = list(dtdps.dataframes.keys())
-        # print([x/1000000000 for x in gt_times])
         matched_gt_idx = np.argmin(time_diff, axis=1)
         total_expected_det = 0
         for dp_idx, det_t in enumerate(dtdps.dataframes):
@@ -180,6 +179,7 @@ class Evaluator:
         '''
         FN rate = (num_expected_detection - num_true_positive_detection) / num_expected_detection
         '''
+        
         dtdps_cut, gtdps_cut = self.remove_outside_data(dtdps, gtdps, extra_buffer_for_gt=0)
         dtdp_list = dtdps_cut.dp_list
         # gtdp_list = gtdps_cut.dp_list

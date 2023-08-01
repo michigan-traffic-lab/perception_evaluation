@@ -1,7 +1,7 @@
 import argparse
 from pathlib import Path
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 
 argparser = argparse.ArgumentParser()
@@ -16,10 +16,13 @@ args = argparser.parse_args()
 
 args.output.mkdir(parents=True, exist_ok=True)
 
+next_day_flag = False # this flag deals with the casee that the timestamp cross a whole day and becomes 0
+
 def timestamp_to_epoch(timestamp, year, month, day):
     # Function to split timestamp into components
     def split_timestamp(timestamp):
         timestamp_str = str(timestamp)
+        # print(timestamp)
         hours = int(timestamp_str[:2])
         minutes = int(timestamp_str[2:4])
         seconds = float(timestamp_str[4:])
@@ -37,19 +40,26 @@ def timestamp_to_epoch(timestamp, year, month, day):
     return epoch_time
 
 def convert_file(file):
+    global next_day_flag
     obj_list = []
     with open(file, 'r') as f:
         data = f.readlines()
     for l in data:
+        if l.startswith('id'):
+            continue
         tmp = l.strip().split(',')
-        timestamp = float(tmp[0])
+        timestamp = tmp[1].zfill(8)
+        if float(timestamp) < 1:
+            next_day_flag = True
         t = timestamp_to_epoch(timestamp, args.year, args.month, args.day)
+        if next_day_flag:
+            t += 24 * 60 * 60
         obj_list.append({
             'timestamp': t,
             'info': 'ground_truth',
             'objs': [{
                 'lon': float(tmp[2]),
-                'lat': float(tmp[1]),
+                'lat': float(tmp[3]),
                 'id': 0,
                 'classType': '10',
             }]

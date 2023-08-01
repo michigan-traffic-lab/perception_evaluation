@@ -16,11 +16,13 @@ def evaluate(dtdps, gtdps, evaluator):
         compute_speed_and_heading(t.dp_list, interval=10)
     dtdps, gtdps = evaluator.remove_outside_data(
         dtdps, gtdps, inplace=False)
+    # 
     evaluator.clear_match(dtdps)
     evaluator.clear_match(gtdps)
-    
+
     tp, fp, fn, fp_rate, fn_rate, total_expected_detection = evaluator.match_points(
         dtdps, gtdps)
+    fn_freq, fnr_freq = evaluator.compute_false_negatives_by_frequency(dtdps, gtdps)
     ids = evaluator.compute_id_switch(dtdps, gtdps)
     mota = evaluator.compute_mota(
         fp, fn, ids, len(dtdps.dp_list))
@@ -34,7 +36,7 @@ def evaluate(dtdps, gtdps, evaluator):
 
     idf1 = evaluator.compute_idf1(tpa, fpa, fna)
     hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
-    return fp_rate, fn_rate, mota, motp, idf1, hota, ids, frequency, interval_variance, dtdps, gtdps
+    return fp_rate, fn_rate, mota, motp, idf1, hota, ids, frequency, interval_variance, fnr_freq, dtdps, gtdps
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument('-d', '--data-root', type=Path, default=Path('./data'))
@@ -85,7 +87,7 @@ for trial in cfg['trials']:
 
         dtdps = read_data(det_path, kind='veh')
         gtdps = read_data(gt_path, kind='veh')
-        fp_rate, fn_rate, mota, motp, idf1, hota, ids, freq, interval_variance, _, _ = evaluate(
+        fp_rate, fn_rate, mota, motp, idf1, hota, ids, freq, interval_variance, fnr_freq, _, _ = evaluate(
             dtdps, gtdps, evaluator)
         result.add_trial({
             'id': trial_id,
@@ -98,7 +100,8 @@ for trial in cfg['trials']:
             'hota': hota,
             'ids': ids,
             'frequency': freq,
-            'interval_variance': interval_variance
+            'interval_variance': interval_variance,
+            'fnr_freq': fnr_freq
         })
         print(
             f"False positive rate: {fp_rate}, False negative rate: {fn_rate}, MOTA: {mota}, MOTP: {motp}, IDF1: {idf1}, HOTA: {hota}, ID Switch: {ids}")
@@ -116,7 +119,7 @@ for trial in cfg['trials']:
         else:
             evaluator.roi_radius = cfg['ROI_RADIUS']
 
-        fp_rate, fn_rate, mota, motp, idf1, hota, ids, freq, interval_variance, dtdps, gtdps = evaluate(
+        fp_rate, fn_rate, mota, motp, idf1, hota, ids, freq, interval_variance, fnr_freq, dtdps, gtdps = evaluate(
             dtdps, gtdps, evaluator)
         result.add_trial({
             'id': trial_id,
@@ -129,7 +132,8 @@ for trial in cfg['trials']:
             'hota': hota,
             'ids': ids,
             'frequency': freq,
-            'interval_variance': interval_variance
+            'interval_variance': interval_variance,
+            'fnr_freq': fnr_freq
         })
         print(
             f"False positive rate: {fp_rate}, False negative rate: {fn_rate}, MOTA: {mota}, MOTP: {motp}, IDF1: {idf1}, HOTA: {hota}, ID Switch: {ids}")
