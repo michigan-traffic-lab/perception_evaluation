@@ -63,10 +63,11 @@ class Evaluator:
         for dp_idx, gtdp in enumerate(output_gtdp_list):
             gtdp.point_wise_match = output_dtdp_list[matched_dt_idx[dp_idx]]
         return TrajectorySet(output_dtdp_list), Trajectory(output_gtdp_list)
-    
+
     def _match_frames_by_time(self, dtdps, gtdps):
         gt_time = np.array([x for x in gtdps.dataframes.keys()])
-        det_time = np.array([x for x in dtdps.dataframes.keys()]) - self.latency * 1000000000
+        det_time = np.array(
+            [x for x in dtdps.dataframes.keys()]) - self.latency * 1000000000
         time_diff = np.abs(det_time[:, None] - gt_time[None, :])
         gt_times = list(gtdps.dataframes.keys())
         det_times = list(dtdps.dataframes.keys())
@@ -88,7 +89,6 @@ class Evaluator:
             if abs(gt_t - det_time[matched_dt_idx[dp_idx]]) / 1000000000 > 0.1:
                 det_frame.match = None
         return total_expected_det
-
 
     # def _compute_matching_multiple_vehicles(self):
 
@@ -146,7 +146,7 @@ class Evaluator:
         num_true_positive = sum([1 for dtdp in dtdp_list if dtdp.tp is True])
         false_positive_rate = num_false_positive / len(dtdp_list)
         return num_false_positive, false_positive_rate, num_true_positive
-    
+
     def compute_false_negatives(self, dtdps):
         num_fn = 0
         total = 0
@@ -157,39 +157,46 @@ class Evaluator:
                 num_fn += len(gt_frame.dp_list) - num_det
                 total += len(gt_frame.dp_list)
         return num_fn, num_fn / len(dtdps.dp_list), total
-                    
 
-    def number_of_expected_detection(self, gtdps):
+    def number_of_expected_detection(self, gtdps, det_freq=None, gt_freq=None):
         num_exp_det = 0
         # if gtdps is a trajectory
+        if det_freq is None:
+            det_freq = self.det_freq
+        if gt_freq is None:
+            gt_freq = self.gt_freq
         if isinstance(gtdps, Trajectory):
             gtdp_list = gtdps.dp_list
-            num_exp_det += (len(gtdp_list) - 1) * self.det_freq / \
-                float(self.gt_freq) + 1
+            num_exp_det += (len(gtdp_list) - 1) * det_freq / \
+                float(gt_freq) + 1
             # print('length of gtdp_list', len(gtdp_list), 'frequency', gtdps.sample_rate, 'detection frequency', self.det_freq, 'num_exp_det', num_exp_det)
             return num_exp_det
         # if gtdps is a trajectory set
         for gtdp_traj in gtdps.trajectories.values():
             gtdp_list = gtdp_traj.dp_list
-            num_exp_det += (len(gtdp_list) - 1) * self.det_freq / \
-                float(self.gt_freq) + 1
+            num_exp_det += (len(gtdp_list) - 1) * det_freq / \
+                float(gt_freq) + 1
         return num_exp_det
 
-    def compute_false_negatives_by_frequency(self, dtdps, gtdps, num_exp_det=None):
+    def compute_false_negatives_by_frequency(self, dtdps, gtdps, num_exp_det=None, det_freq=None, gt_freq=None):
         '''
         FN rate = (num_expected_detection - num_true_positive_detection) / num_expected_detection
         '''
-        
-        dtdps_cut, gtdps_cut = self.remove_outside_data(dtdps, gtdps, extra_buffer_for_gt=0)
+
+        dtdps_cut, gtdps_cut = self.remove_outside_data(
+            dtdps, gtdps, extra_buffer_for_gt=0)
         dtdp_list = dtdps_cut.dp_list
         # gtdp_list = gtdps_cut.dp_list
 
         num_tp_det = sum([1.0 for dtdp in dtdp_list if dtdp.tp == True])
         if num_exp_det is None:
-            num_exp_det = self.number_of_expected_detection(gtdps_cut)
+            num_exp_det = self.number_of_expected_detection(
+                gtdps_cut, det_freq=det_freq, gt_freq=gt_freq)
         # print('expected number of detection', num_exp_det,
         #       'number of detection', num_tp_det)
         num_false_negative = max(0.0, num_exp_det - num_tp_det)
+        print('num_exp_det', num_exp_det, 'num_tp_det',
+              num_tp_det, 'num_false_negative', num_false_negative)
         false_negative_rate = num_false_negative / num_exp_det
         return int(num_false_negative+0.5), false_negative_rate
 
@@ -200,10 +207,10 @@ class Evaluator:
     #     return self.actual_det_freq
     def compute_actual_frequency(self, dtdps):
         times = list(dtdps.dataframes.keys())
-        #print(times)
+        # print(times)
         time_interval = (times[-1] - times[0]) / (len(times) - 1)
         return 1 / (time_interval / 1000000000)
-    
+
     def compute_interval_variance(self, dtdps):
         times = list(dtdps.dataframes.keys())
         time_intervals = np.diff(times)
@@ -331,26 +338,27 @@ class Evaluator:
             det_frame = dtdps.dataframes[det_t]
             if det_frame.match is not None:
                 gt_frame = det_frame.match
-                match_score = {k1: {k2: 0 for k2 in gt_frame.ids} for k1 in det_frame.ids}
+                match_score = {k1: {k2: 0 for k2 in gt_frame.ids}
+                               for k1 in det_frame.ids}
                 for dtdp in det_frame.dp_list:
                     for gtdp in gt_frame.dp_list:
                         d = distance(dtdp.lat, dtdp.lon, gtdp.lat, gtdp.lon)
                         match_score[dtdp.id][gtdp.id] = d
                 # print(match_score)
-                match_result, total_score = hungarian_matching(match_score, minimize=True)
+                match_result, total_score = hungarian_matching(
+                    match_score, minimize=True)
                 for dtdp_id in match_result:
                     dtdp = _find_data_point(det_frame.dp_list, dtdp_id)
                     matched_id = match_result[dtdp.id]
-                    dtdp.point_wise_match = _find_data_point(gt_frame.dp_list, matched_id)
+                    dtdp.point_wise_match = _find_data_point(
+                        gt_frame.dp_list, matched_id)
 
-        
-        
         self.compute_and_store_position_error(dtdps, gtdps)
         num_fp, fp_rate, num_tp = self.compute_false_positives(dtdps)
-        num_fn, fn_rate, total_expected_detection = self.compute_false_negatives(dtdps)
+        num_fn, fn_rate, total_expected_detection = self.compute_false_negatives(
+            dtdps)
         # print('num_tp', num_tp, 'num_fp', num_fp, 'fp_rate', fp_rate, 'num_fn', num_fn, 'fn_rate', fn_rate)
         return num_tp, num_fp, num_fn, fp_rate, fn_rate, total_expected_detection
-
 
     def match_trajectories(self, dtdps, gtdps, total_expected_detection):
         match_score = {k1: {k2: 0 for k2 in gtdps.ids} for k1 in dtdps.ids}
@@ -381,9 +389,9 @@ class Evaluator:
         #     fna += fn
         # print('fna', fna)
         return match_result, tpa, fpa, fna
-    
+
     def compute_idf1(self, tpa, fpa, fna):
         return compute_idf1(tpa, fpa, fna)
-    
+
     def compute_hota(self, tpa, fpa, fna, tp, fp, fn):
         return compute_hota(tpa, fpa, fna, tp, fp, fn)
