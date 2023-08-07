@@ -5,10 +5,14 @@ import os
 from geopy import Point
 from geopy import distance as geodistance
 from pathlib import Path
+from datetime import datetime, timedelta
+import pytz
 
 argparser = argparse.ArgumentParser(description='Decode the SDSM Messages from DERQ')
-argparser.add_argument('-i', '--input', type=str, help='the input JSON file.')
+argparser.add_argument('-i', '--input', type=str, help='the input folder of JSON file.')
 argparser.add_argument('-o', '--output', type=str, help='the output folder.')
+argparser.add_argument('-m', '--month', type=int, help='month')
+argparser.add_argument('-y', '--year', type=int, help='year')
 args = argparser.parse_args()
 
 def calculate_final_position(center_lat, center_long, x_offset, y_offset):
@@ -97,12 +101,27 @@ if __name__ == "__main__":
             for x in lines:
                 # print(x)
                 message = decode_message(x["data"])
-                # print(message)
+
+                day = message[4]
+                hour = message[5]
+                minute = message[6]
+                second = message[7]
+                offset = message[8]
+                # print(day, hour, minute, second, offset)
+                # print(int((second % 1) * 1_000_000))
+
+                # Create a datetime object, timezone-aware
+                dt = datetime(args.year, args.month, day, hour, minute, int(second), int((second % 1) * 1_000_000), tzinfo=pytz.UTC)
+                # print(dt)
+
+                # Convert to epoch (Unix time)
+                epoch_time = dt.timestamp()
+
                 result.append({"event_timestamp": x["event_timestamp"],
                                "info": x["info"],
                                "objs": create_object_from_decoded(message),
                                "time": x["time"],
-                               "timestamp": x["timestamp"]})
+                               "timestamp": epoch_time})
 
 
         with open(Path(args.output) / filename, "w") as f:
