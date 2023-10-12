@@ -94,6 +94,8 @@ class TrajectorySet:
                     self.dataframes[t] = DataFrame(dp_list=[dp], time=t)
                 else:
                     self.dataframes[t].add_dp(dp)
+                    # print(self.dataframes[t].dp_list)
+
             if trajectories is None:
                 if dp.id not in self.trajectories:
                     self.trajectories[dp.id] = Trajectory(dp_list=[dp], id=dp.id)

@@ -15,13 +15,12 @@ def evaluate(dtdps, gtdps, evaluator):
         compute_speed_and_heading(t.dp_list, interval=10)
     dtdps, gtdps = evaluator.remove_outside_data(
         dtdps, gtdps, inplace=False)
-    #
     evaluator.clear_match(dtdps)
     evaluator.clear_match(gtdps)
 
     tp, fp, fn, fp_rate, fn_rate, total_expected_detection = evaluator.match_points(
         dtdps, gtdps)
-    fn_freq, fnr_freq = evaluator.compute_false_negatives_by_frequency(
+    fn_freq, fnr_freq, total_expected_detection_freq = evaluator.compute_false_negatives_by_frequency(
         dtdps, gtdps)
     # if args.visualize:
     # plotter = Plotter(center_lat=evaluator.center_lat,
@@ -45,7 +44,8 @@ def evaluate(dtdps, gtdps, evaluator):
     evaluator.clear_match(gtdps)
 
     match_result, tpa, fpa, fna = evaluator.match_trajectories(
-        dtdps, gtdps, total_expected_detection)
+        dtdps, gtdps, total_expected_detection_freq)
+    # print(f"tpa: {tpa}, fpa: {fpa}, fna: {fna}")
 
     idf1 = evaluator.compute_idf1(tpa, fpa, fna)
     hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)

@@ -6,7 +6,7 @@ argparser = argparse.ArgumentParser(description='Truncate a JSON file into piece
 argparser.add_argument('-c', '--config', type=str, help='the configuration of start and end timestamp.', required=True)
 argparser.add_argument('-i', '--input', type=str, help='the input JSON file.', required=True)
 argparser.add_argument('-o', '--output', type=str, help='the output folder.', default='./output')
-argparser.add_argument('--output-prefix', type=str, help='the prefix of the output file.', default="ped_gps_data_")
+argparser.add_argument('--output-prefix', type=str, help='the prefix of the output file.', default="gps_data_")
 args = argparser.parse_args()
 
 timestamps = {}
@@ -27,7 +27,8 @@ def find_within_timestamp(data):
         if v[0] <= timestamp and timestamp <= v[1]:
             if k not in truncated_data:
                 truncated_data[k] = [data]
-            truncated_data[k].append(data)
+            else:
+                truncated_data[k].append(data)
 
 for d in data:
     find_within_timestamp(d)

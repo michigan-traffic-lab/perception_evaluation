@@ -54,7 +54,7 @@ def convert_veh1_file(file):
             "info": "ground_truth",
             'objs': [{"lon": lon,
                      "lat": lat,
-                      'id': 0,
+                      'id': '0',
                       "classType": "2",}]
         })
     # sort data by timestamp
@@ -136,6 +136,48 @@ def merge_veh1_veh2_data(veh1_data, veh2_data):
         # print(objs)
     return data
 
+def merge_data(veh1_data, veh2_data):
+    p2 = 0
+    data = []
+    for d1 in veh1_data:
+        t1 = d1['timestamp']
+        if p2 + 1 > len(veh2_data) - 1:
+            break
+        while veh2_data[p2+1]['timestamp'] < t1:
+            p2 += 1
+            if p2 + 1 > len(veh2_data) - 1:
+                break
+        if p2 + 1 > len(veh2_data) - 1:
+            break
+        # print(p2)
+        
+        d2 = veh2_data[p2]
+        t2 = d2['timestamp']
+        lat2 = d2['objs'][0]['lat']
+        lon2 = d2['objs'][0]['lon']
+        # if t1 < t2:
+        #     continue
+        t2_next = veh2_data[p2 + 1]['timestamp']
+        print(t2, t1,  t2_next)
+        lat2_next = veh2_data[p2+1]['objs'][0]['lat']
+        lon2_next = veh2_data[p2+1]['objs'][0]['lon']
+        lat2_interpolated, lon2_interpolated = interpolate(
+            t1, t2, t2_next, lat2, lon2, lat2_next, lon2_next)
+        objs = d1['objs']
+        objs.append({
+            "lon": lon2_interpolated,
+            "lat": lat2_interpolated,
+            'id': '1',
+            "classType": "2",
+        })
+        data.append({
+            "timestamp": t1,
+            "info": "ground_truth",
+            'objs': objs
+        })
+        # print(objs)
+    return data
+
 
 input_folder_path = args.input
 for d in input_folder_path.iterdir():
@@ -144,8 +186,10 @@ for d in input_folder_path.iterdir():
         veh2_file = find_file_by_prefix(d, args.veh2_file_prefix)
         data1 = convert_veh1_file(veh1_file)
         if veh2_file is not None:
-            data2 = convert_veh2_file(veh2_file)
-            data = merge_veh1_veh2_data(data1, data2)
+            # data2 = convert_veh2_file(veh2_file)
+            # data = merge_veh1_veh2_data(data1, data2)
+            data2 = convert_veh1_file(veh2_file)
+            data = merge_data(data1, data2)
         else:
             data = data1
         with open(args.output / (args.output_prefix + d.name + '.json'), 'w') as f:

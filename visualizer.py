@@ -44,7 +44,7 @@ class Plotter:
                 continue
             matched_gtdp = dtdp.point_wise_match
             self.fig.add_trace(go.Scattermapbox(lat=[matched_gtdp.lat, dtdp.lat], lon=[matched_gtdp.lon, dtdp.lon], mode='lines',
-            marker={'size': 10, 'color': color}, name='matching'))
+            marker={'size': 5, 'color': color}, name='matching'))
 
 if __name__ == '__main__':
     from utils import DataPoint
@@ -58,7 +58,8 @@ if __name__ == '__main__':
     dtdp_list = []
     for d in data:
         for obj in d['objs']:
-            dtdp_list.append(DataPoint(id=obj['id'], lat=obj['lat'], lon=obj['lon'], time=d['timestamp']))
+            dtdp_list.append(DataPoint(id=obj['id'], lat=obj['lat'], lon=obj['lon'], time=d['timestamp'] * 1e9))
+    # print(len(dtdp_list))
     plotter = Plotter(center_lat, center_lon)
     plotter.plot_traj_data(dtdp_list, 'custom')
     plotter.fig.show()
