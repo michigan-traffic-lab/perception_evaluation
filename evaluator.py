@@ -253,6 +253,7 @@ class Evaluator:
         id_switch = num_dt_ids - num_gt_ids
         # id_counts = collections.Counter(ids)
         # self.id_consistency = max(id_counts.values()) / len(ids)
+        id_switch = max(0, id_switch)
         return id_switch
 
     def compute_mota(self, num_false_positive, num_false_negative, id_switch, num_exp_det):

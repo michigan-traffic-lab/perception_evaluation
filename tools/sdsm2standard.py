@@ -35,10 +35,10 @@ def convert_to_timestamp(time_dict):
 def calculate_final_position(center_lat, center_long, x_offset, y_offset):
     start_point = (center_lat, center_long)
     # Calculate new coordinates based on offsets
-    # new_lat_lon = geodistance(meters=x_offset).destination(point=start_point, bearing=0)  # 0 degrees is North for latitude change
-    # new_lat_lon = geodistance(meters=y_offset).destination(point=new_lat_lon, bearing=90)  # 90 degrees is East for longitude change
-    new_lat_lon = geodistance(meters=y_offset).destination(point=start_point, bearing=180)  # 180 degrees is South for latitude change
-    new_lat_lon = geodistance(meters=x_offset).destination(point=new_lat_lon, bearing=90)  # 90 degrees is East for longitude change
+    new_lat_lon = geodistance(meters=x_offset).destination(point=start_point, bearing=0)  # 0 degrees is North for latitude change
+    new_lat_lon = geodistance(meters=y_offset).destination(point=new_lat_lon, bearing=90)  # 90 degrees is East for longitude change
+    # new_lat_lon = geodistance(meters=y_offset).destination(point=start_point, bearing=180)  # 180 degrees is South for latitude change
+    # new_lat_lon = geodistance(meters=x_offset).destination(point=new_lat_lon, bearing=90)  # 90 degrees is East for longitude change
     return new_lat_lon.latitude, new_lat_lon.longitude
 
 

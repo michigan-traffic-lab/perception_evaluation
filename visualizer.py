@@ -28,7 +28,7 @@ class Plotter:
             dp_sublist = [dp for dp in dp_list if dp.id == id]
             self.fig.add_trace(go.Scattermapbox(
                 lat=[dp.lat for dp in dp_sublist], lon=[dp.lon for dp in dp_sublist], mode='markers', text=[str(dp) for dp in dp_sublist],
-                marker={'size': 5, 'color': color if color is not None else cmaps[hash(str(id)) % len(cmaps)]}, name=plot_name+f'ID: {id}'))
+                marker={'size': 10, 'color': color if color is not None else cmaps[hash(str(id)) % len(cmaps)]}, name=plot_name+f'ID: {id}'))
 
     def plot_matching(self, dtdp_list, color='yellow'):
         for dtdp_idx, dtdp in enumerate(dtdp_list):

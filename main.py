@@ -4,6 +4,7 @@ import yaml
 from evaluator import Evaluator
 from utils import read_data, compute_speed_and_heading, Result
 from visualizer import Plotter
+import ast
 
 
 def evaluate(dtdps, gtdps, evaluator):
@@ -45,7 +46,7 @@ def evaluate(dtdps, gtdps, evaluator):
 
     match_result, tpa, fpa, fna = evaluator.match_trajectories(
         dtdps, gtdps, total_expected_detection_freq)
-    # print(f"tpa: {tpa}, fpa: {fpa}, fna: {fna}")
+    print(f"tpa: {tpa}, fpa: {fpa}, fna: {fna}")
 
     idf1 = evaluator.compute_idf1(tpa, fpa, fna)
     hota = evaluator.compute_hota(tpa, fpa, fna, tp, fp, fn)
@@ -71,12 +72,22 @@ for trial in cfg['trials']:
     trial_id = trial['id']
     det_path = Path(data_root) / data_name / trial['det_file']
     gt_path = Path(data_root) / data_name / trial['gt_file']
+    mask = None
+    if 'MASK' in cfg:
+        # print(cfg['MASK'])
+        mask = ast.literal_eval(cfg['MASK'])
+        
+    if 'mask' in trial:
+        if mask is None:
+            mask = ast.literal_eval(trial['mask'])
+        else:
+            mask = mask + ast.literal_eval(trial['mask'])
     print(f"   ++++++++ Processing trial {trial_id} ++++++++")
     if trial['type'] == 'latency' and args.latency is not None:
         continue
     elif trial['type'] == 'latency':
-        dtdps = read_data(det_path, kind='veh')
-        gtdps = read_data(gt_path)
+        dtdps = read_data(det_path, kind='veh', mask=mask)
+        gtdps = read_data(gt_path, kind='veh', mask=mask)
         dtdps, gtdps = evaluator.remove_outside_data(
             dtdps, gtdps, radius=trial['roi_radius'])
         latency = evaluator.compute_latency(dtdps, gtdps)
@@ -102,8 +113,8 @@ for trial in cfg['trials']:
         # evaluator.det_freq = cfg['DET_FREQUENCY']
         evaluator.gt_freq = cfg['GROUND_TRUTH_FREQUENCY_VEH']
 
-        dtdps = read_data(det_path, kind='veh')
-        gtdps = read_data(gt_path, kind='veh')
+        dtdps = read_data(det_path, kind='veh', mask=mask)
+        gtdps = read_data(gt_path, kind='veh', mask=mask)
         fp_rate, fn_rate, mota, mota_freq, motp, idf1, hota, ids, freq, interval_variance, fnr_freq, _, _ = evaluate(
             dtdps, gtdps, evaluator)
         result.add_trial({
@@ -130,8 +141,8 @@ for trial in cfg['trials']:
             evaluator.latency = result.latency
         assert evaluator.latency is not None, "Latency is not set"
         print(f'using latency of {evaluator.latency}')
-        dtdps = read_data(det_path, kind='ped')
-        gtdps = read_data(gt_path, kind='ped')
+        dtdps = read_data(det_path, kind='ped', mask=mask)
+        gtdps = read_data(gt_path, kind='ped', mask=mask)
         if 'roi_radius' in trial:
             evaluator.roi_radius = trial['roi_radius']
         else:

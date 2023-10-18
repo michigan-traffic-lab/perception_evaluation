@@ -7,3 +7,4 @@ pandas
 scipy
 tqdm
 tabulate
+shapely

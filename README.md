@@ -1,5 +1,5 @@
 # Perception Sysmtem Evaluation
-This repository contains code and resources for evaluating the performance of a perception system. This document only shows basic usages. For an in-depth understanding, check our [developer document](docs/README-developer.md). 
+This repository contains code and resources for evaluating the performance of a perception system. This document aim to illustrate the usage of the scripts. For development details, check our [developer document](docs/README-developer.md). 
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -159,6 +159,25 @@ We also provide a couple of [tools](docs/tools.md) to convert and operate the da
 To evaluate a perception system, run
 ```
 python main.py --d </path/to/data/root> -n <name-of-the-testing> [--latency <estimated-latency>]
+```
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+1. Fork the Project
+
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+
+4. Push to the Branch (git push origin feature/AmazingFeature)
+
+5. Open a Pull Request
+
+## License
+
+MIT License is a permissive free software license with very limited restrictions on reuse and has, therefore, high license compatibility. The instruction for adding the license can be referred to [here](LICENSE).
 
 ## Developers
 Depu Meng, Zihao Wang, Rusheng Zhang, Shengyin Shen
@@ -166,5 +185,3 @@ Depu Meng, Zihao Wang, Rusheng Zhang, Shengyin Shen
 ## Contact
 Henry Liu - henryliu@umich.edu
 
-## License
-TBD

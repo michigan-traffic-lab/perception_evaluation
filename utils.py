@@ -4,9 +4,16 @@ from algo.utils import DataPoint, TrajectorySet, DataFrame
 import json
 from tqdm import tqdm
 from tabulate import tabulate
+from shapely.geometry import Point, Polygon
+
+def is_inside_polygon(point: tuple, polygon: list):
+    # point: (lat, lon)
+    pg = Polygon(polygon)
+    pt = Point(point)
+    return pg.contains(pt)
 
 
-def read_data(data_path, kind='all'):
+def read_data(data_path, kind='all', mask = None):
     with open(data_path, 'r') as f:
         data = json.load(f)
     dp_list = []
@@ -20,6 +27,9 @@ def read_data(data_path, kind='all'):
                     continue
             elif kind == 'ped':
                 if o['classType'] != '10':
+                    continue
+            if mask is not None:
+                if is_inside_polygon((o['lat'], o['lon']), mask):
                     continue
             dp = DataPoint(o['id'], t, o['lat'], o['lon'])
             df.add_dp(dp)

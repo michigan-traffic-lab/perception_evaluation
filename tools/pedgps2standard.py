@@ -31,7 +31,8 @@ def convert_ped_file(f):
     converted_data = []
     for line in data:
         tmp = line.strip().split(',')
-        timestamp = time_string_to_timestamp(tmp[1])
+        # timestamp = time_string_to_timestamp(tmp[1])
+        timestamp = float(tmp[1])
         lon = float(tmp[2])
         lat = float(tmp[3])
         converted_data.append({
