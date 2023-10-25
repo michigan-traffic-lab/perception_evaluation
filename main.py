@@ -58,20 +58,23 @@ argparser.add_argument('-d', '--data-root', type=Path, default=Path('./data'))
 argparser.add_argument('-n', '--data-name', type=str, required=True)
 argparser.add_argument('-l', '--latency', type=float)
 argparser.add_argument('-v', '--visualize', action='store_true')
+argparser.add_argument('-c', '--config', type=str, default='config.yaml', help="config file name, note that this is not a path but the file name, the file must be in the root path of the data folder (data_root/data_name/)")
 args = argparser.parse_args()
 
 data_root = args.data_root
 data_name = args.data_name
+config_file_name = args.config
 
-with open(data_root / data_name / 'config.yaml', 'r') as f:
+with open(data_root / data_name / config_file_name, 'r') as f:
     cfg = yaml.safe_load(f)
 evaluator = Evaluator('veh', cfg['TP_DISTANCE_THRESHOLD'], det_freq=cfg['DET_FREQUENCY'],
                       gt_freq=cfg['GROUND_TRUTH_FREQUENCY_VEH'], center_latlng=cfg['CENTER_COR'], roi_radius=cfg['ROI_RADIUS'], latency=args.latency)
 result = Result()
 for trial in cfg['trials']:
     trial_id = trial['id']
-    det_path = Path(data_root) / data_name / trial['det_file']
-    gt_path = Path(data_root) / data_name / trial['gt_file']
+    if not trial['type'] == 'visualization':
+        det_path = Path(data_root) / data_name / trial['det_file']
+        gt_path = Path(data_root) / data_name / trial['gt_file']
     mask = None
     if 'MASK' in cfg:
         # print(cfg['MASK'])
@@ -169,6 +172,27 @@ for trial in cfg['trials']:
         })
         print(
             f"False positive rate: {fp_rate}, False negative rate: {fn_rate}, MOTA: {mota}, MOTP: {motp}, IDF1: {idf1}, HOTA: {hota}, ID Switch: {ids}")
+    elif trial['type'] == 'visualization':
+        det_path = Path(data_root) / data_name / trial['det_file']
+        veh_dtdps = read_data(det_path, kind='veh', mask=mask)
+        ped_dtdps = read_data(det_path, kind='ped', mask=mask)
+        veh_gtdps = read_data(Path(data_root) / data_name / trial['gt_ped_file'], kind='ped', mask=mask)
+        ped_gtdps = read_data(Path(data_root) / data_name / trial['gt_veh_file'], kind='veh', mask=mask)
+        plotter = Plotter(center_lat=evaluator.center_lat,
+                          center_lon=evaluator.center_lon,
+                          title=f'Detection results for trip {trial_id}')
+        
+        plotter.plot_traj_data(
+            veh_gtdps.dp_list, plot_name='RTK GPS', color='blue')
+        plotter.plot_traj_data(
+            ped_gtdps.dp_list, plot_name='RTK GPS', color='blue')
+        plotter.plot_traj_data(
+            veh_dtdps.dp_list, plot_name='Vehicle Detection', color='red')
+        plotter.plot_traj_data(
+            ped_dtdps.dp_list, plot_name='Pedestrian Detection', color='orange')
+        
+        plotter.fig.show()
+        continue
         ####### visualization########
     if args.visualize:
         plotter = Plotter(center_lat=evaluator.center_lat,
