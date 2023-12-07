@@ -93,13 +93,18 @@ for trial in cfg['trials']:
         gtdps = read_data(gt_path, kind='veh', mask=mask)
         dtdps, gtdps = evaluator.remove_outside_data(
             dtdps, gtdps, radius=trial['roi_radius'])
-        latency = evaluator.compute_latency(dtdps, gtdps)
+        latency, latency_std, latency_max, latency_min, latency_skew, latency_kurtosis = evaluator.compute_latency(dtdps, gtdps)
         result.add_trial({
             'id': trial_id,
             'type': 'latency',
-            'latency': latency
+            'latency': latency,
+            'latency_std': latency_std,
+            'latency_max': latency_max,
+            'latency_min': latency_min,
+            'latency_skew': latency_skew,
+            'latency_kurtosis': latency_kurtosis,
         })
-        print(f"Latency: {latency}")
+        print(f"Latency: {latency}, Latency std: {latency_std}, Latency max: {latency_max}, Latency min: {latency_min}, Latency skew: {latency_skew}, Latency kurtosis: {latency_kurtosis}")
     elif trial['type'] == 'vehicle_evaluation':
         if 'roi_radius' in trial:
             evaluator.roi_radius = trial['roi_radius']

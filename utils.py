@@ -279,12 +279,12 @@ class Result:
         s = ''
         if self.has_type('latency'):
             s += f'+++++++++++++++++++Latency Results+++++++++++++++++++\n'
-            headers = ['Trial ID', 'Latency']
+            headers = ['Trial ID', 'Latency', 'Std', 'Max', 'Min', 'skew', 'kurtosis']
             data = []
             for t in self.trials:
                 if t['type'] == 'latency':
-                    data.append([t['id'], t['latency']])
-            data.append(['Mean', self.latency])
+                    data.append([t['id'], t['latency'], t['latency_std'], t['latency_max'], t['latency_min'], t['latency_skew'], t['latency_kurtosis']])
+            data.append(['Mean', self.latency, self.calc_mean("latency_std", "latency"), self.calc_mean("latency_max", "latency"), self.calc_mean("latency_min", "latency")])
             s += tabulate(data, headers=headers, floatfmt=".3f")
             s += '\n'
         if self.has_type('vehicle_evaluation'):

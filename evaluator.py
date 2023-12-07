@@ -39,9 +39,9 @@ class Evaluator:
             self.lat_error, self.lon_error, self.id_switch, self.id_consistency, self.mota
 
     def compute_latency(self, dtdps, gtdps):
-        self.latency = compute_latency(
+        self.latency, latency_std, latency_max, latency_min, latency_skew, latency_kurtosis = compute_latency(
             dtdps, gtdps, dis_th=self.dis_th, time_th=self.time_th)
-        return self.latency
+        return self.latency, latency_std, latency_max, latency_min, latency_skew, latency_kurtosis
 
     def compute_matching_by_time(self, dtdps, gt_traj, inplace=False):
         dtdp_list = dtdps.dp_list

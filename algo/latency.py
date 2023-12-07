@@ -1,5 +1,6 @@
 import numpy as np
 from .utils import compute_minimum_distance_matching
+from scipy.stats import skew, kurtosis, shapiro
 def compute_latency(dtdps, gtdps, dis_th=1.5, time_th=3):
     '''
     A roundtrip with overlapped trajectories
@@ -25,7 +26,18 @@ def compute_latency(dtdps, gtdps, dis_th=1.5, time_th=3):
     time_diff = np.array([dtdp.time - gtdp_list[min_dis_match_idx[i]].time for (i, dtdp) in
                           enumerate(dtdp_list) if min_dis_match_idx[i] != -1])
     latency = np.mean(time_diff) / 1e9
-    return latency
+    latency_std = np.std(time_diff) / 1e9
+    latency_max = np.max(time_diff) / 1e9
+    latency_min = np.min(time_diff) / 1e9
+    latency_skew = skew(time_diff)
+    latency_kurtosis = kurtosis(time_diff, fisher=False)
+    stat, p = shapiro(time_diff)
+    print('Statistics=%.3f, p=%.3f' % (stat, p))
+    if p > 0.05:
+        print('Sample looks Gaussian (fail to reject H0)')
+    else:
+        print('Sample does not look Gaussian (reject H0)')
+    return latency, latency_std, latency_max, latency_min, latency_skew, latency_kurtosis
 
 
 # def compute_latency_latency_from_experiment(self):
