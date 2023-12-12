@@ -1,4 +1,4 @@
-# Perception Sysmtem Evaluation
+# Roadside Perception Sysmtem Evaluation
 This repository contains code and resources for evaluating the performance of a perception system. This document aim to illustrate the usage of the scripts. For development details, check our [developer document](docs/README-developer.md). 
 
 ## Getting Started
