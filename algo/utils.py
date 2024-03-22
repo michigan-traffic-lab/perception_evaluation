@@ -148,8 +148,10 @@ def nested_dict_to_matrix(nested_dict):
 
     # Convert the DataFrame to a matrix
     matrix = df.values
+    col_keys = df.columns.tolist()  # Columns of the DataFrame
+    row_keys = df.index.tolist()    # Index (rows) of the DataFrame
 
-    return matrix
+    return matrix, col_keys, row_keys
 
 
 # def matrix_to_nested_dict(matrix, nested_dict_template):

@@ -1,5 +1,6 @@
 import numpy as np
-import collections
+# import collections
+import pdb
 from algo.mota import compute_mota
 from algo.motp import compute_motp
 from visualizer import Plotter
@@ -351,9 +352,10 @@ class Evaluator:
                     for gtdp in gt_frame.dp_list:
                         d = distance(dtdp.lat, dtdp.lon, gtdp.lat, gtdp.lon)
                         match_score[dtdp.id][gtdp.id] = d
-                # print(match_score)
+                #print(match_score)
                 match_result, total_score = hungarian_matching(
                     match_score, minimize=True)
+                # pdb.set_trace()
                 for dtdp_id in match_result:
                     dtdp = _find_data_point(det_frame.dp_list, dtdp_id)
                     matched_id = match_result[dtdp.id]

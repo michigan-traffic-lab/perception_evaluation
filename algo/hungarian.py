@@ -3,7 +3,7 @@ from scipy.optimize import linear_sum_assignment
 
 def hungarian_matching(matching_scores, minimize=False):
     # Convert the nested dictionary to a cost matrix
-    matrix = nested_dict_to_matrix(matching_scores)
+    matrix, col_keys, row_keys = nested_dict_to_matrix(matching_scores)
 
     # Convert scores to costs
     if not minimize:
@@ -18,10 +18,10 @@ def hungarian_matching(matching_scores, minimize=False):
     total_score = matrix[row_ind, col_ind].sum()
 
     # Map the indices back to the original keys
-    row_keys = list(matching_scores.values())[0].keys()
-    col_keys = matching_scores.keys()
+    # col_keys = list(matching_scores.keys())  # Outer keys as column labels
+    # row_keys = list(matching_scores[col_keys[0]].keys())  # Inner keys as row labels
 
     # Create the matching result using original keys
-    result = {col: row for row, col in zip([list(row_keys)[i] for i in row_ind], [list(col_keys)[j] for j in col_ind])}
+    result = {col: row for col, row in zip([col_keys[j] for j in col_ind], [row_keys[i] for i in row_ind])}
 
     return result, total_score
