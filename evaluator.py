@@ -163,6 +163,7 @@ class Evaluator:
                 num_det = len([x for x in det_frame.dp_list if x.tp is True])
                 num_fn += len(gt_frame.dp_list) - num_det
                 total += len(gt_frame.dp_list)
+                # print(f"frame {t}: num_det: {num_det}, num_gt: {len(gt_frame.dp_list)}")    
         return num_fn, num_fn / len(dtdps.dp_list), total
 
     def number_of_expected_detection(self, gtdps, det_freq=None, gt_freq=None):

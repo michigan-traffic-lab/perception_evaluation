@@ -13,8 +13,13 @@ def convert_instances(objs):
         # 'veh' type 2
         # 'ped' type 10
         # print(int(obj['type']))
-        assert int(obj['type']) in [1, 2], f'unknown type {obj["type"]}' # 1 for vehicle, 0 for pedestrian
-        new_obj['classType'] = '2' if int(obj['type']) == 1 else '10'
+        assert int(obj['type']) in [0, 1, 2], f'unknown type {obj["type"]}' # 0 for vehicle, 1 for pedestrian, 2 for the rest
+        if int(obj['type']) == 0:
+            new_obj['classType'] = '2'
+        elif int(obj['type']) == 1:
+            new_obj['classType'] = '10'
+        else:
+            new_obj['classType'] = '11'
         new_obj['lat'] = obj['lonlat'][0]
         new_obj['lon'] = obj['lonlat'][1]
         new_obj['speed'] = obj['speed']
