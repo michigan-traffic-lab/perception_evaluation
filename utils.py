@@ -294,9 +294,9 @@ class Result:
             data = []
             for t in self.trials:
                 if t['type'] == 'vehicle_evaluation':
-                    data.append([t['id'], t['fp_rate'],t['fnr_freq'],  t['mota_freq'], t['motp'],
+                    data.append([t['id'], t['fp_rate'],t['fn_rate'],  t['mota'], t['motp'],
                                 t['idf1'], t['hota'], t['ids'], t['frequency'], t['interval_variance']])
-            data.append(['Mean', self.calc_mean("fp_rate", "vehicle_evaluation"), self.calc_mean("fnr_freq", "vehicle_evaluation"), self.calc_mean("mota_freq", 'vehicle_evaluation'), self.calc_mean(
+            data.append(['Mean', self.calc_mean("fp_rate", "vehicle_evaluation"), self.calc_mean("fn_rate", "vehicle_evaluation"), self.calc_mean("mota", 'vehicle_evaluation'), self.calc_mean(
                 "motp", "vehicle_evaluation"), self.calc_mean("idf1", "vehicle_evaluation"), self.calc_mean("hota", "vehicle_evaluation"), self.calc_mean("ids", "vehicle_evaluation")])
             s += tabulate(data, headers=headers, floatfmt=".3f")
             s += '\n'
@@ -307,9 +307,9 @@ class Result:
             data = []
             for t in self.trials:
                 if t['type'] == 'pedestrian_evaluation':
-                    data.append([t['id'], t['fp_rate'], t['fnr_freq'], t['mota_freq'], t['motp'],
+                    data.append([t['id'], t['fp_rate'], t['fn_rate'], t['mota_freq'], t['motp'],
                                 t['idf1'], t['hota'], t['ids'], t['frequency'], t['interval_variance']])
-            data.append(['Mean', self.calc_mean("fp_rate", "pedestrian_evaluation"), self.calc_mean("fnr_freq", "pedestrian_evaluation"), self.calc_mean("mota_freq", 'pedestrian_evaluation'), self.calc_mean(
+            data.append(['Mean', self.calc_mean("fp_rate", "pedestrian_evaluation"), self.calc_mean("fn_rate", "pedestrian_evaluation"), self.calc_mean("mota_freq", 'pedestrian_evaluation'), self.calc_mean(
                 "motp", "pedestrian_evaluation"), self.calc_mean("idf1", "pedestrian_evaluation"), self.calc_mean("hota", "pedestrian_evaluation"), self.calc_mean("ids", "pedestrian_evaluation")])
             s += tabulate(data, headers=headers, floatfmt=".3f")
             s += '\n'

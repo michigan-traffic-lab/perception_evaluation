@@ -75,14 +75,14 @@ if __name__ == "__main__":
     argp.add_argument("--fusion-folder-name", type=str, default="fusion")
     args = argp.parse_args()
     args.output_path.mkdir(exist_ok=True, parents=True)
-    roadside_detection_objs = []
-    onboard_detection_objs = []
-    fusion_objs = []
-    ground_truth_objs = []
     data_path = args.data_path
     for folder in data_path.iterdir():
         # print(file)
         # read pkl file
+        roadside_detection_objs = []
+        onboard_detection_objs = []
+        fusion_objs = []
+        ground_truth_objs = []
         if folder.is_dir():
             case_name = folder.name
             print(f'Processing {case_name}')
